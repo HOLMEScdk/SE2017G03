@@ -1,0 +1,122 @@
+1.1£º
+
+procedure Cart_add interface<http requset> is
+begin
+ if(user is logged in)
+    if (user want to add Goods to cart)
+    then
+        Add an instance of a commodity to a shopping cart
+        which based on this user info.  
+        insert above add_message into MongoDB
+        return add Goods succeed
+ else
+     defult
+end
+
+1.2£º
+
+procedure Cart_browse interface<http request> is
+begin
+ if(user is logged in)
+    if (user want to browse Goods from cart)
+    then
+    instance of a commodity info=all_cart(Good_item)
+    select above Goods_message from MongoDB
+    Commodity display
+ else
+     defult
+end
+
+1.3: 
+
+procedure Cart_delete interface<http request> is
+begin
+ if(user is logged in)
+    if (user want to delete Goods from cart)
+    then
+    instance of a commodity info=select(Good_item)
+    delete above delete_message from MongoDB
+    return delect Goods succeed
+ else
+     defult
+end
+
+2.1:
+
+procedure Goods_search interface<http request> is
+begin
+    do
+    kw=input("Commodity keywords")
+    select above kw from MongoDB
+    instance of a commodity info=all_rs(Good_item)
+    Commodity display
+    while(search)
+end
+
+2.2
+
+procedure Goods_browse interface<http request> is
+begin
+    do
+    instance of a commodity info=all_rs(Good)
+    Commodity display
+    while(browse)
+end
+
+2.3
+
+procedure User_operation interface<http request> is
+begin
+    if(user want to know the operation)
+    Click the "help" button
+end
+
+3.1
+
+procedure Order_Submit interface<http request> is
+begin
+    Good_info=select(Good_item)
+    Harvest address=select(harvest_adress)
+    which the user has filled out
+    Order_message=Good_info + Harvest address
+    if(user want to submit the order)
+    insert above Order_message into MongoDB
+    return Submit_Order succeed
+end
+
+3.2
+procedure Order_Modify interface<http request> is
+begin
+    Harvest address=select(harvest_adress)
+    modify Harvest address=input(modify_Harvest_address)
+    which the user has filled out
+    if(user want to modify the order)
+    update above Modify_Order_info into MongoDB 
+    return Modify_Order succeed
+end
+
+3.3
+procedure Order_delete interface<http request> is
+begin
+    if (user want to delete Order from cart)
+    then
+    instance of a Order info=select(Order_item)
+    delete above delete_Order from MongoDB
+    return delect Goods succeed
+ else
+     defult
+end
+
+Main
+while(1)
+
+switch(user_operation)
+  case dddtocart:Cart_add
+  case browsecart:Cart_browse
+  case deletefromcart:Cart_delete
+  case searchgoods:Goods_search
+  case operation:User_operation
+  case submit_order:Order_Submit
+  case modify_order:Order_Modify
+  case delete_order:Order_delete
+  defult:Cart_browse
