@@ -1,0 +1,71 @@
+procedure USER_REGISTER  interface<http requset> is
+begin
+    if <user want to register as a member> then
+        complete some necessary personal information
+        which includes name phone address Date   
+        insert above message into MongoDB
+        return register succeed
+    else 
+        return register failed
+end
+
+procedure User_ModifyPasswd interface<http request> is
+begin
+    old_passwd = input("old_password")
+    real_passwd = Extract from MongoDB
+    if old_passwd not equal real_passwd then
+        print("Sorry your input password is not equal with your real password")
+        return False
+    else 
+        input your new password
+        ans = Do you really want to modify your passwd ? Yes : No 
+        if ans equal yes
+            modify your password update in MongoDB
+            print("Modify succeed")
+    return True
+end
+
+procedure User_ModifyAddress interface<http request> is
+begin
+    test_passwd = input("old_password")
+    real_passwd = Extract from MongoDB
+    if test_passwd not equal real_passwd then
+        print("Sorry your input password is not equal with your real password")
+        return False
+    else 
+        input your new address
+        ans = Do you really want to modify your address ? Yes : No 
+        if ans equal yes
+            modify your address update in MongoDB
+            print("Modify succeed")
+    return True
+end
+
+procedure User_AddAddress interface<http request> is
+begin
+    test_passwd = input("old_password")
+    real_passwd = Extract from MongoDB
+    if test_passwd not equal real_passwd then
+        print("Sorry your input password is not equal with your real password")
+        return False
+    else
+        ans = Do you really want to add this address into your account ? Yes : No 
+        if ans equal yes 
+            insert address into MongoDB
+            print("delete succeed")
+    return True
+end
+procedure User_DeleteAddress interface<http request> is
+begin
+    test_passwd = input("old_password")
+    real_passwd = Extract from MongoDB
+    if test_passwd not equal real_passwd then
+        print("Sorry your input password is not equal with your real password")
+        return False
+    else
+        ans = Do you really want to delete your address ? Yes : No 
+        if ans equal yes 
+            delete your address in MongoDB
+            print("delete succeed")
+    return True
+end
