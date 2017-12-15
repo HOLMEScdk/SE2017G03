@@ -1,0 +1,540 @@
+﻿{% extends "base.html" %}
+{% load staticfiles%}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    {% block js %}
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>My Account</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png"> -->
+
+    <!-- All css files are included here -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" href="{% static 'css/core.css'%}">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" href="{% static 'css/shortcode/shortcodes.css'%}">
+    <!-- Theme main style -->
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+    <!-- User style -->
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}">
+    <!-- Modernizr JS -->
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js'%}"></script>
+    {% endblock %}
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->  
+
+    <!-- Body main wrapper start -->
+    {% block content %}
+    <div class="wrapper">
+        <!-- Start of header area -->
+        <!-- End of header area -->
+        <!-- Start Breadcrumbs Area -->
+        <div class="breadcrumbs-area breadcrumbs-bg ptb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumbs-inner">
+                            <h5 class="breadcrumbs-disc m-0">Best Products for you</h5>
+                            <h2 class="breadcrumbs-title text-black m-0">My Account </h2>
+                            <ul class="top-page">
+                                <li><a href="/">Home</a></li>
+                                <li>></li>
+                                <li>My Account</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <!-- End Breadcrumbs Area -->
+        <!-- Start page content -->
+        <section id="page-content" class="page-wrapper pt-10">
+            <!-- Banner Area Start -->
+            <div class="banner-two-area">
+                <div class="banner-two-bottom">
+                    <div class="single-banner-two">
+                        <div class="banner-two-img">
+                            <a href="#">
+                                <img src="{% static 'images/banner/8.jpg'%}" alt="">
+                            </a>
+                        </div>
+                        <div class="banner-two-text left-middle-bottom">
+                            <div class="banner-two-opacity-inner">
+                                <div class="banner-two-text-inner banner-bottom-text-inner text-uppercase">
+                                    <h2 class="bottom-banner-title">NEW COLLECTION</h2>
+                                    <h2>hand bag</h2>
+                                    <a href="#" class="btn-shop">SHOP NOW</a>
+                                </div>
+                                <div class="banner-opacity text-center bags text-uppercase">
+                                    <h1>BAG’S</h1>
+                                </div>                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-banner-two">
+                        <div class="banner-two-img">
+                            <a href="#">
+                                <img src="{% static 'images/banner/9.jpg'%}" alt="">
+                            </a>
+                        </div>
+                        <div class="banner-two-text right-middle-bottom">
+                            <div class="banner-two-opacity-inner">
+                                <div class="banner-two-text-inner banner-bottom-text-inner text-uppercase">
+                                    <h2 class="bottom-banner-title">WOMEN’S</h2>
+                                    <h2>summer</h2>
+                                    <h2>collection</h2>
+                                    <a href="#" class="btn-shop">VIEW COLLECTION</a>
+                                </div>
+                                <div class="banner-opacity text-center summer text-uppercase">
+                                    <h1>SUMMER</h1>
+                                </div>                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-banner-two">
+                        <div class="banner-two-img">
+                            <a href="#">
+                                <img src="{% static 'images/banner/10.jpg'%}" alt="">
+                            </a>
+                        </div>
+                        <div class="banner-two-text middle-middle-bottom">
+                            <div class="banner-two-opacity-inner">
+                                <div class="banner-two-text-inner banner-bottom-text-inner text-uppercase">
+                                    <h2 class="bottom-banner-title">T-SHIRT</h2>
+                                    <h2>COLLECTION</h2>
+                                    <h2 class="m-0">FOR ALL</h2>
+                                    <a href="#" class="btn-shop">SHOP NOW</a>
+                                </div>
+                                <div class="banner-opacity text-center t-shirt text-uppercase">
+                                    <h1>T-SHIRT</h1>
+                                </div>                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Area End -->
+            <!-- Start My Account -->
+            <div class="my-account-page section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="procced-checkout">
+                                <h4 class="procced-title text-uppercase pb-15 mb-20"><strong>Procced to Checkout</strong></h4>
+                                <p>Welcome to your account. Here you can manage all of your personal information and orders.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="addresses-lists">
+                            <div class="col-xs-12 col-sm-6 col-lg-6">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    <i class="fa fa-home"></i>
+                                                   <span>Add my first address</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <div class="coupon-info">
+                                                    <h6 class="procced-title text-uppercase pb-15 mb-20">Your addresses </h6>
+                                                    <p class="text-black">To add a new address, please fill out the form below.</p>
+                                                    <p class="required">*Required field</p>
+                                                    <form action="#">
+                                                        <div class="shop-select mb-15">
+                                                            <label>Your Full Name<span class="required">*</span></label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label>Address<span class="required">*</span></label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label>City<span class="required">*</span></label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div class="country-select shop-select mb-15">
+                                                            <label>Country <span class="required">*</span></label>
+                                                            <select>
+                                                                <option value="volvo">Bangladesh</option>
+                                                                <option value="saab">Algeria</option>
+                                                                <option value="mercedes">Afghanistan</option>
+                                                                <option value="audi">Ghana</option>
+                                                                <option value="audi2">Albania</option>
+                                                                <option value="audi3">Bahrain</option>
+                                                                <option value="audi4">Colombia</option>
+                                                                <option value="audi5">Dominican Republic</option>
+                                                            </select>                                       
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label>Mobile phone<span class="required">*</span></label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <p class="required">** You must register at least one phone number.</p>
+                                                        <div class="form-row order-notes">
+                                                            <label>Additional information</label>
+                                                            <textarea></textarea>
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label>Please assign an address title for future reference.<span class="required">*</span></label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <a class="button extra-small" href="#" title="Add to Cart">
+                                                            <span>Save</span>
+                                                        </a>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                    <i class="fa fa-list-ol"></i>
+                                                   <span>My credit slips</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                <div class="coupon-info">
+                                                    <h6 class="procced-title text-uppercase pb-15 mb-20">Your addresses </h6>
+                                                    <p class="text-black">To add a new address, please fill out the form below.</p>
+                                                </div>
+                                                <div class="theme-bg">
+                                                    <p class="alert text-white">You have not placed any orders.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                                    <i class="fa fa-folder-o"></i>
+                                                   <span>My addresses</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <div class="panel-body">
+                                                <div class="coupon-info">
+                                                    <h6 class="procced-title text-uppercase pb-15 mb-20">Your addresses </h6>
+                                                    <p class="text-black">To add a new address, please fill out the form below.</p>
+                                                </div>
+                                                <div class="theme-bg">
+                                                    <p class="alert text-white">You have not placed any orders.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingFour">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                                    <i class="fa fa-building"></i>
+                                                   <span>My personal information</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                            <div class="panel-body">
+                                                <div class="coupon-info">
+                                                    <h6 class="procced-title text-uppercase pb-15 mb-20">Your addresses </h6>
+                                                    <p class="text-black">To add a new address, please fill out the form below.</p>
+                                                    <p class="required">*Required field</p>
+                                                    <form action="#">
+                                                        <div class="shop-select">
+                                                            <label><span class="required">*</span>Social title</label>
+                                                        </div>
+                                                        <div class="radio-inline">
+                                                            <label class="top">
+                                                                <span class="checked">
+                                                                    <input type="radio"> 
+                                                                </span>
+                                                                Mr.
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio-inline">
+                                                            <label class="top">
+                                                                <span class="checked">
+                                                                    <input type="radio"> 
+                                                                </span>
+                                                                Mrs.
+                                                            </label>
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label><span class="required">*</span>Your Full Name</label>
+                                                            <input type="text">
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label><span class="required">*</span>E-mail address</label>
+                                                            <input type="text">
+                                                        </div>
+                                                        <div class="country-select shop-select mb-15">
+                                                            <label>Date of Birth</label>
+                                                            <div class="row">
+                                                                <div class="col-xs-4">
+                                                                    <select>
+                                                                        <option>1</option>
+                                                                        <option>2</option>
+                                                                        <option>3</option>
+                                                                        <option>4</option>
+                                                                        <option>5</option>
+                                                                        <option>6</option>
+                                                                        <option>7</option>
+                                                                        <option>8</option>
+                                                                        <option>9</option>
+                                                                        <option>10</option>
+                                                                        <option>11</option>
+                                                                        <option>12</option>
+                                                                        <option>13</option>
+                                                                        <option>14</option>
+                                                                        <option>15</option>
+                                                                        <option>16</option>
+                                                                        <option>17</option>
+                                                                        <option>18</option>
+                                                                        <option>19</option>
+                                                                        <option>20</option>
+                                                                        <option>21</option>
+                                                                        <option>22</option>
+                                                                        <option>23</option>
+                                                                        <option>24</option>
+                                                                        <option>25</option>
+                                                                        <option>26</option>
+                                                                        <option>27</option>
+                                                                        <option>28</option>
+                                                                        <option>29</option>
+                                                                        <option>30</option>
+                                                                    </select>                                                               
+                                                                </div>
+                                                                <div class="col-xs-4">
+                                                                    <select>
+                                                                        <option>January</option>
+                                                                        <option>February </option>
+                                                                        <option>March </option>
+                                                                        <option>April </option>
+                                                                        <option>May </option>
+                                                                        <option>June </option>
+                                                                        <option>July </option>
+                                                                        <option>August </option>
+                                                                        <option>September </option>
+                                                                        <option>October </option>
+                                                                        <option>November </option>
+                                                                        <option>December </option>
+                                                                    </select>                                                               
+                                                                </div>
+                                                                <div class="col-xs-4">
+                                                                    <select>
+                                                                        <option>1990</option>
+                                                                        <option>1991</option>
+                                                                        <option>1992</option>
+                                                                        <option>1993</option>
+                                                                        <option>1994</option>
+                                                                        <option>1995</option>
+                                                                        <option>1996</option>
+                                                                        <option>1997</option>
+                                                                        <option>1998</option>
+                                                                        <option>1999</option>
+                                                                        <option>2000</option>
+                                                                        <option>2001</option>
+                                                                        <option>2002</option>
+                                                                        <option>2003</option>
+                                                                        <option>2004</option>
+                                                                        <option>2005</option>
+                                                                        <option>2006</option>
+                                                                        <option>2007</option>
+                                                                        <option>2008</option>
+                                                                        <option>2009</option>
+                                                                        <option>2010</option>
+                                                                        <option>2011</option>
+                                                                        <option>2012</option>
+                                                                        <option>2013</option>
+                                                                        <option>2014</option>
+                                                                        <option>2017</option>
+                                                                        <option>2017</option>
+                                                                        <option>2017</option>
+                                                                        <option>2018</option>
+                                                                        <option>2019</option>
+                                                                        <option>2020</option>
+                                                                    </select>                                                        
+                                                                </div>
+                                                            </div>                                      
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label><span class="required">*</span>Current Password</label>
+                                                            <input type="text">
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label>New Password</label>
+                                                            <input type="text">
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label>Confirmation</label>
+                                                            <input type="text">
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <span><input type="checkbox"></span>
+                                                                Sign up for our newsletter!
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <span><input type="checkbox"></span>
+                                                                Receive special offers from our partners!
+                                                            </label>
+                                                        </div>
+                                                        <a title="Add to Cart" href="#" class="button extra-small">
+                                                            <span>Save</span>
+                                                        </a>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-6">
+                                <div class="myaccount-link-list">                               
+                                    <div class="panel panel-default mb-5">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a  href="">
+                                                    <i class="fa fa-heart"></i>
+                                                    <span>My wishlists</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default m-0">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a  href="/cart.html">
+                                                    <i class="fa fa-list-ol"></i>
+                                                    <span>Order history and details</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <!-- End of My Account -->
+            <!-- Start Brand Area -->
+            <div class="brand-area section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section-title text-center mb-35">
+                                <h2 class="text-uppercase"><strong>OUR BRAND</strong></h2>
+                                <p class="text-defualt">BRAND</p>
+                                <img alt="" src="{% static 'images/section-border.png'%}">
+                            </div>
+                            <div class="brand-carousel">
+                                <div class="col-md-12">
+                                    <div class="single-brand text-center">
+                                        <a href="#">
+                                            <img src="{% static 'images/brand/1.png'%}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="single-brand text-center">
+                                        <a href="#">
+                                            <img src="{% static 'images/brand/2.png'%}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="single-brand text-center">
+                                        <a href="#">
+                                            <img src="{% static 'images/brand/3.png'%}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="single-brand text-center">
+                                        <a href="#">
+                                            <img src="{% static 'images/brand/4.png'%}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="single-brand text-center">
+                                        <a href="#">
+                                            <img src="{% static 'images/brand/5.png'%}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="single-brand text-center">
+                                        <a href="#">
+                                            <img src="{% static 'images/brand/1.png'%}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="single-brand text-center">
+                                        <a href="#">
+                                            <img src="{% static 'images/brand/2.png'%}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="single-brand text-center">
+                                        <a href="#">
+                                            <img src="{% static 'images/brand/3.png'%}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Brand Area -->
+        </section>
+        <!-- End page content -->
+        <!-- Start footer area -->
+        <!-- End footer area -->           
+    </div>
+    {% endblock %}
+    <!-- Body main wrapper end -->    
+
+    <!-- Placed js at the end of the document so the pages load faster -->
+
+    <!-- jquery latest version -->
+    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap framework js -->
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <!-- All js plugins included in this file. -->
+    <script src="{% static 'js/plugins.js'%}"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="{% static 'js/main.js'%}"></script>
+
+</body>
+
+</html>
