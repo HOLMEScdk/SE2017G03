@@ -63,12 +63,6 @@ CSS INDEX
 /*----------------------------------------*/
 @font-face {
     font-family: 'Montserrat', sans-serif;
-    src: url("fonts/Montserrat-Regular.otf") format("opentype"),
-    url("fonts/Montserrat-Light.otf") format("opentype"),
-    url("fonts/Montserrat-UltraLight.otf") format("opentype"),
-    url("fonts/Montserrat-SemiBold.otf") format("opentype"),
-    url("fonts/Montserrat-Bold.otf") format("opentype"),
-    url("fonts/Montserrat-ExtraBold.otf") format("opentype"),
 }
 @font-face {
     font-family: 'Xpressive';
@@ -81,7 +75,6 @@ CSS INDEX
   src: url('fonts/Oswald-Heavy.woff2') format('woff2'),
        url('fonts/Oswald-Heavy.woff') format('woff'),
        url('fonts/Oswald-Heavy.ttf') format('truetype'),
-       url('fonts/Oswald-Heavy.svg#Oswald-Heavy') format('svg'),
        url('fonts/Oswald-Heavy.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
@@ -92,7 +85,6 @@ CSS INDEX
   src: url('fonts/Oswald-ExtraLight.woff2') format('woff2'),
        url('fonts/Oswald-ExtraLight.woff') format('woff'),
        url('fonts/Oswald-ExtraLight.ttf') format('truetype'),
-       url('fonts/Oswald-ExtraLight.svg#Oswald-ExtraLight') format('svg'),
        url('fonts/Oswald-ExtraLight.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
@@ -103,7 +95,6 @@ CSS INDEX
   src: url('fonts/Oswald-Medium.woff2') format('woff2'),
        url('fonts/Oswald-Medium.woff') format('woff'),
        url('fonts/Oswald-Medium.ttf') format('truetype'),
-       url('fonts/Oswald-Medium.svg#Oswald-Medium') format('svg'),
        url('fonts/Oswald-Medium.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
@@ -1529,7 +1520,7 @@ ul.about-middle-inner-right-text li {
 }
 .table-content table td {
   border-top: medium none;
-  padding: 20px 0
+  padding: 20px 0;
   vertical-align: middle;
 }
 .table-content table td.product-thumbnail {

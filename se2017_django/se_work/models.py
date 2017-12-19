@@ -9,16 +9,17 @@ connect('SE2017')
 
 # client = pymongo.MongoClient('10.134.80.119
 
+
 class AddExtraInfo(EmbeddedDocument):
+    name = StringField()
     address = StringField()
     phone = StringField(max_length=11)
-    name = StringField()
 
 
-class Carts(DynamicDocument):
-    _id = DateTimeField(required=True, primary_key=True, default=datetime.datetime.now)
-    productid = StringField()
-    productname = StringField()
+class Carts(EmbeddedDocument):
+    _id = DateTimeField(required=True, default=datetime.datetime.now)
+    product_id = StringField()
+    product_name = StringField()
     size = StringField()
     price = FloatField()
     color = StringField()
@@ -39,12 +40,12 @@ class Order(DynamicDocument):
 
 class Customer(DynamicDocument):
     _id = StringField(required=True, primary_key=True)
+    sex = StringField(required=True)
     password = StringField(required=True, max_length=16)
     extra_info = ListField(EmbeddedDocumentField(AddExtraInfo))
-    carts = ListField(ReferenceField(Carts, reverse_delete_rule=CASCADE))
+    carts = ListField(EmbeddedDocumentField(Carts))
     order = ListField(ReferenceField(Order, reverse_delete_rule=CASCADE))
     register_time = DateTimeField(default=datetime.datetime.now)
-    sex = StringField(required=True)
     '''
     cart is referenced by customer,each cart is individual  access via its _id
     '''
@@ -53,6 +54,7 @@ class Customer(DynamicDocument):
 class Products(DynamicDocument):
     _id = StringField(required=True, primary_key=True)
     name = StringField(required=True)
+    description = StringField()
     class_belong = StringField(required=True, max_length=100)
     size = ListField(StringField(max_length=50))
     color = ListField(StringField(max_length=50))
@@ -62,6 +64,8 @@ class Products(DynamicDocument):
     time_import = DateTimeField(default=datetime.datetime.now)
     time_end_sale = StringField()
     amount = IntField(default=100)
+    src = StringField(required=True)
+
 '''
 when a customer touched a good then put this product into cart and extract its information
 '''
@@ -76,7 +80,7 @@ when a customer touched a good then put this product into cart and extract its i
 # product1 = Products(_id="aa2", name="second_try2", class_belong="Test", raw_price=150.0, sale_price=250.0, size=["XXL"],
 #                     color=["RED"])
 # product1.save()
-id
+# id
 '''
 追加地址等额外信息
 '''

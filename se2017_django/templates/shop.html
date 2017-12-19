@@ -1,6 +1,5 @@
-﻿{% extends "base.html" %}
+﻿﻿﻿{% extends "base.html" %}
 {% load staticfiles %}
-<!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -46,12 +45,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumbs-inner">
-                            <h5 class="breadcrumbs-disc m-0">Best Products for you</h5>
-                            <h2 class="breadcrumbs-title text-black m-0">FORGE SHOP</h2>
+                            <h5 class="breadcrumbs-disc m-0">带给你最好的购物体验</h5>
+                            <h2 class="breadcrumbs-title text-black m-0">所有商品</h2>
                             <ul class="top-page">
-                                <li><a href="/">Home</a></li>
+                                <li><a href="/">主页</a></li>
                                 <li>></li>
-                                <li>Shop</li>
+                                <li>所有商品</li>
                             </ul>
                         </div>
                     </div>
@@ -62,69 +61,7 @@
         <!-- Start page content -->
         <section id="page-content" class="page-wrapper pt-10">
             <!-- Banner Area Start -->
-            <div class="banner-two-area">
-                <div class="banner-two-bottom">
-                    <div class="single-banner-two">
-                        <div class="banner-two-img">
-                            <a href="#">
-                                <img src="{% static 'images/banner/8.jpg'%}" alt="">
-                            </a>
-                        </div>
-                        <div class="banner-two-text left-middle-bottom">
-                            <div class="banner-two-opacity-inner">
-                                <div class="banner-two-text-inner banner-bottom-text-inner text-uppercase">
-                                    <h2 class="bottom-banner-title">NEW COLLECTION</h2>
-                                    <h2>hand bag</h2>
-                                    <a href="#" class="btn-shop">SHOP NOW</a>
-                                </div>
-                                <div class="banner-opacity text-center bags text-uppercase">
-                                    <h1>BAG’S</h1>
-                                </div>                              
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-banner-two">
-                        <div class="banner-two-img">
-                            <a href="#">
-                                <img src="{% static 'images/banner/9.jpg'%}" alt="">
-                            </a>
-                        </div>
-                        <div class="banner-two-text right-middle-bottom">
-                            <div class="banner-two-opacity-inner">
-                                <div class="banner-two-text-inner banner-bottom-text-inner text-uppercase">
-                                    <h2 class="bottom-banner-title">WOMEN’S</h2>
-                                    <h2>summer</h2>
-                                    <h2>collection</h2>
-                                    <a href="#" class="btn-shop">VIEW COLLECTION</a>
-                                </div>
-                                <div class="banner-opacity text-center summer text-uppercase">
-                                    <h1>SUMMER</h1>
-                                </div>                              
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-banner-two">
-                        <div class="banner-two-img">
-                            <a href="#">
-                                <img src="{% static 'images/banner/10.jpg'%}" alt="">
-                            </a>
-                        </div>
-                        <div class="banner-two-text middle-middle-bottom">
-                            <div class="banner-two-opacity-inner">
-                                <div class="banner-two-text-inner banner-bottom-text-inner text-uppercase">
-                                    <h2 class="bottom-banner-title">T-SHIRT</h2>
-                                    <h2>COLLECTION</h2>
-                                    <h2 class="m-0">FOR ALL</h2>
-                                    <a href="#" class="btn-shop">SHOP NOW</a>
-                                </div>
-                                <div class="banner-opacity text-center t-shirt text-uppercase">
-                                    <h1>T-SHIRT</h1>
-                                </div>                              
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <!-- Banner Area End -->
             <!-- Start Shop View Area -->
             <div class="shop-view-area pt-90">
@@ -141,15 +78,15 @@
                         <div class="col-md-4 col-sm-6 hidden-xs">
                             <div class="shop-tab-pill">
                                 <div class="show-label">
-                                    <label>Sort by : </label>
+                                    <label>排序: </label>
                                     <select>
-                                        <option selected="selected" value="position">Position</option>
-                                        <option value="Name">Name</option>
-                                        <option value="Price">Price</option>
+                                        <option selected="selected" value="position">位置</option>
+                                        <option value="Name">商品名</option>
+                                        <option value="Price">价格</option>
                                     </select>
                                 </div>
                                 <div class="show-label showing">
-                                    <label>Showing : </label>
+                                    <label>显示 : </label>
                                     <select>
                                         <option selected="selected" value="position">9</option>
                                         <option>1</option>
@@ -167,11 +104,11 @@
                         </div>
                         <div class="col-sm-4 col-xs-8">
                             <div class="shop-pagination">
-                                <label>page : </label>
+                                <label>当前页 : </label>
                                 <ul>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
+                                    <li><a href="1">1</a></li>
+                                    <li><a href="2">2</a></li>
+                                    <li><a href="3">3</a></li>
                                     <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
@@ -187,869 +124,77 @@
                         <div class="product-list tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="home">
                                 <div class="product-container-list rp-style-2">
+                                     {% for product_pos in products %}
                                     <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
+                                        <a href="product_ref/{{product_pos.name}}">
                                             <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/1.jpg'%}">
+                                                <img alt="" src="/media/{{product_pos.src}}">
                                             </div>
                                         </a>
-                                        <span class="product-tag text-uppercase black-bg">new</span>
+                                        <div style="text-align: center">
+                                        {{product_pos.name}}
+                                        </div>
+                                        {# product name #}
                                         <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="product_ref/{{product_pos.name}}"><i class="fa fa-eye"></i></a></li>
                                             <li><a href="#"><i class="fa fa-refresh"></i></a></li>
                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         </ul>
                                         <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$150</li>
-                                                <li class="text-right p-price">$180</li>
-                                            </ul>
+{#                                            <ul class="pricing list-inline pull-right">#}
+{#                                                <li class="c-price text-center ">{{product_pos.sale_price}}</li>#}
+{#                                     price add tag         <li class="text-right p-price">{{product_pos.sale_price}}</li>#}
+{#                                            </ul>#}
+{#                                            <form action="add_cart" method="post">#}
+{#                                                {% csrf_token %}#}
+                                                <div style="text-align: center;color: black;"><strong>{{ product_pos.sale_price }}</strong></div>
+{#                                                <input type="submit" name="cart" value="加入购物车">#}
+{#                                                <input type="text" name="prod_id" value={{ product_pos.id }} style="display:none">#}
+{#                                            </form>#}
                                             <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Eletria ostma" href="#">Eletria ostma</a>
-                                            </h6>
                                         </div>
                                     </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/2.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <span class="product-tag text-uppercase theme-bg">sale</span>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$140</li>
-                                                <li class="text-right p-price">$180</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Tletria postma" href="#">TTletria postma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/3.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$170</li>
-                                                <li class="text-right p-price">$190</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Celletria ostma" href="#">Celletria ostma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/4.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <span class="product-tag text-uppercase orang-bg">-35%</span>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$100</li>
-                                                <li class="text-right p-price">$130</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Montria jastma" href="#">Montria jastma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/5.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$120</li>
-                                                <li class="text-right p-price">$130</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Teletria ostma" href="#">Teletria ostma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/6.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <span class="product-tag text-uppercase orang-bg">-20%</span>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10d">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$100</li>
-                                                <li class="text-right p-price">$110</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Tletria postma" href="#">Tletria postma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/7.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$120</li>
-                                                <li class="text-right p-price">$130</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Celletria ostma" href="#">Celletria ostma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/8.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <span class="product-tag text-uppercase black-bg">new</span>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$110</li>
-                                                <li class="text-right p-price">$140</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Montria jastma" href="#">Montria jastma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/9.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <span class="product-tag text-uppercase theme-bg">sale</span>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$170</li>
-                                                <li class="text-right p-price">$190</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Eletria ostma" href="#">Teletria ostma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/10.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$170</li>
-                                                <li class="text-right p-price">$190</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Eletria ostma" href="#">Eletria ostma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/1.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <span class="product-tag text-uppercase black-bg">new</span>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$150</li>
-                                                <li class="text-right p-price">$180</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Eletria ostma" href="#">Eletria ostma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/2.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <span class="product-tag text-uppercase theme-bg">sale</span>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$140</li>
-                                                <li class="text-right p-price">$180</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Tletria postma" href="#">TTletria postma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/3.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$170</li>
-                                                <li class="text-right p-price">$190</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Celletria ostma" href="#">Celletria ostma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/4.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <span class="product-tag text-uppercase orang-bg">-35%</span>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$100</li>
-                                                <li class="text-right p-price">$130</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Montria jastma" href="#">Montria jastma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/5.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$120</li>
-                                                <li class="text-right p-price">$130</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Teletria ostma" href="#">Teletria ostma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/6.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <span class="product-tag text-uppercase orang-bg">-20%</span>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$100</li>
-                                                <li class="text-right p-price">$110</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Tletria postma" href="#">Tletria postma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/7.jp'%}g">
-                                            </div>
-                                        </a>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$120</li>
-                                                <li class="text-right p-price">$130</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Celletria ostma" href="#">Celletria ostma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/8.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <span class="product-tag text-uppercase black-bg">new</span>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$110</li>
-                                                <li class="text-right p-price">$140</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Montria jastma" href="#">Montria jastma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/9.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <span class="product-tag text-uppercase theme-bg">sale</span>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$170</li>
-                                                <li class="text-right p-price">$190</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Eletria ostma" href="#">Teletria ostma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="product-inner cp-style-2 mt-30 col-2">
-                                        <a href="#">
-                                            <div class="product-img b-img">
-                                                <img alt="" src="{% static 'images/product/arrival/10.jpg'%}">
-                                            </div>
-                                        </a>
-                                        <ul class="quick-veiw text-center">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        </ul>
-                                        <div class="product-text pt-10">
-                                            <ul class="pull-left list-inline ratings">
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                                <li><i class="rated fa fa-star"></i></li>
-                                            </ul>
-                                            <ul class="pricing list-inline pull-right">
-                                                <li class="text-right c-price">$170</li>
-                                                <li class="text-right p-price">$190</li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                            <h6 class="product-name m-0">
-                                                <a title="Eletria ostma" href="#">Eletria ostma</a>
-                                            </h6>
-                                        </div>
-                                    </div>
+                                     {% endfor %}
                                 </div>
                             </div>
+                        {# 纵排 #}
                             <div role="tabpanel" class="tab-pane fade modify2" id="menu1">
                                 <div class="product-container-list product-container-list-full rp-style-2">
+                                    {% for each in products %}
                                     <div class="cp-style-2 mt-30">
                                         <div class="product-inner-list clearfix">
                                             <div class="product-img-list">
-                                                <a href="#">
+                                                <a href="product_ref/{{each.name}}">
                                                     <div class="product-img b-img">
-                                                        <img alt="" src="{% static 'images/product/arrival/1.jpg'%}">
+                                                        <img alt="" src="/media/{{each.src}}">
                                                     </div>
                                                 </a>
                                                 <span class="product-tag text-uppercase black-bg">new</span>
                                             </div>
                                             <div class="product-text product-text-list gray-ash-bg">
                                                 <h5 class="product-name-list">
-                                                    <a title="Montria jastma" href="#"><strong>Montria jastma</strong></a>
-                                                </h5>
-                                                <ul class="pull-left list-inline ratings rating-list pb-20">
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li class="reviews text-theme"><span>10</span>Review(s)</li>
-                                                </ul>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat pariatur</p>
+                                                    <a title={{ each.name }} href="#"><strong>{{ each.name }}</strong></a>
+                                                </h5>}
+                                                <p>{{ each.description }}</p>
                                                 <ul class="pricing pricing-list">
-                                                    <li class="text-right p-price text-center">$180</li>
-                                                    <li class="text-right c-price text-defualt text-center">$150</li>
+                                                    <li class="text-right c-price text-center">{{ each.sale_price}}</li>
                                                 </ul>
                                                 <div class="clear"></div>
                                                 <ul class="quick-veiw-list">
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                                    <li><a href="product_ref/{{each.name}}"><i class="fa fa-eye"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-refresh"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                                 </ul>
-                                            </div>                                                
-                                        </div>
-                                    </div>
-                                    <div class="cp-style-2 mt-30">
-                                        <div class="product-inner-list clearfix">
-                                            <div class="product-img-list">
-                                                <a href="#">
-                                                    <div class="product-img b-img">
-                                                        <img alt="" src="{% static 'images/product/arrival/2.jpg'%}">
-                                                    </div>
-                                                </a>
-                                                <span class="product-tag text-uppercase theme-bg">sale</span>
                                             </div>
-                                            <div class="product-text product-text-list gray-ash-bg">
-                                                <h5 class="product-name-list">
-                                                    <a title="Zelletria ostma" href="#"><strong>Zelletria ostma</strong></a>
-                                                </h5>
-                                                <ul class="pull-left list-inline ratings rating-list pb-20">
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li class="reviews text-theme"><span>10</span>Review(s)</li>
-                                                </ul>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat pariatur</p>
-                                                <ul class="pricing pricing-list">
-                                                    <li class="text-right p-price text-center">$220</li>
-                                                    <li class="text-right c-price text-defualt text-center">$195</li>
-                                                </ul>
-                                                <div class="clear"></div>
-                                                <ul class="quick-veiw-list">
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                </ul>
-                                            </div>                                                
                                         </div>
                                     </div>
-                                    <div class="cp-style-2 mt-30">
-                                        <div class="product-inner-list clearfix">
-                                            <div class="product-img-list">
-                                                <a href="#">
-                                                    <div class="product-img b-img">
-                                                        <img alt="" src="{% static 'images/product/arrival/3.jpg'%}">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="product-text product-text-list gray-ash-bg">
-                                                <h5 class="product-name-list">
-                                                    <a title="Letria postma" href="#"><strong>Letria postma</strong></a>
-                                                </h5>
-                                                <ul class="pull-left list-inline ratings rating-list pb-20">
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li class="reviews text-theme"><span>10</span>Review(s)</li>
-                                                </ul>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat pariatur</p>
-                                                <ul class="pricing pricing-list">
-                                                    <li class="text-right p-price text-center">$160</li>
-                                                    <li class="text-right c-price text-defualt text-center">$140</li>
-                                                </ul>
-                                                <div class="clear"></div>
-                                                <ul class="quick-veiw-list">
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                </ul>
-                                            </div>                                                
-                                        </div>
-                                    </div>
-                                    <div class="cp-style-2 mt-30">
-                                        <div class="product-inner-list clearfix">
-                                            <div class="product-img-list">
-                                                <a href="#">
-                                                    <div class="product-img b-img">
-                                                        <img alt="" src="{% static 'images/product/arrival/4.jpg'%}">
-                                                    </div>
-                                                </a>
-                                                <span class="product-tag text-uppercase orang-bg">-20%</span>
-                                            </div>
-                                            <div class="product-text product-text-list gray-ash-bg">
-                                                <h5 class="product-name-list">
-                                                    <a title="Montria jastma" href="#"><strong>Montria jastma</strong></a>
-                                                </h5>
-                                                <ul class="pull-left list-inline ratings rating-list pb-20">
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li class="reviews text-theme"><span>10</span>Review(s)</li>
-                                                </ul>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat pariatur</p>
-                                                <ul class="pricing pricing-list">
-                                                    <li class="text-right p-price text-center">$160</li>
-                                                    <li class="text-right c-price text-defualt text-center">$140</li>
-                                                </ul>
-                                                <div class="clear"></div>
-                                                <ul class="quick-veiw-list">
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                </ul>
-                                            </div>                                                
-                                        </div>
-                                    </div>
-                                    <div class="cp-style-2 mt-30">
-                                        <div class="product-inner-list clearfix">
-                                            <div class="product-img-list">
-                                                <a href="#">
-                                                    <div class="product-img b-img">
-                                                        <img alt="" src="{% static 'images/product/arrival/5.jpg'%}">
-                                                    </div>
-                                                </a>
-                                                <span class="product-tag text-uppercase black-bg">new</span>
-                                            </div>
-                                            <div class="product-text product-text-list gray-ash-bg">
-                                                <h5 class="product-name-list">
-                                                    <a title="Metria ostma" href="#"><strong>Metria ostma</strong></a>
-                                                </h5>
-                                                <ul class="pull-left list-inline ratings rating-list pb-20">
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li><i class="rated fa fa-star"></i></li>
-                                                    <li class="reviews text-theme"><span>10</span>Review(s)</li>
-                                                </ul>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat pariatur</p>
-                                                <ul class="pricing pricing-list">
-                                                    <li class="text-right p-price text-center">$160</li>
-                                                    <li class="text-right c-price text-defualt text-center">$140</li>
-                                                </ul>
-                                                <div class="clear"></div>
-                                                <ul class="quick-veiw-list">
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                </ul>
-                                            </div>                                                
-                                        </div>
-                                    </div>
+                                     {% endfor %}
                                 </div>
                             </div>
                         </div>                        
                     </div>
                 </div>
             </div>
-            <!-- End Product List -->
-            <!-- Start Shop View Area -->
-            <div class="shop-view-area pt-30">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-2 col-xs-4">
-                            <div class="shop-tab-pill">
-                                <ul>
-                                    <li class="active"><a data-toggle="pill" href="{% static '#home'%}"><i class="fa fa-th" aria-hidden="true"></i></a></li>
-                                    <li><a data-toggle="pill" href="{% static '#menu1'%}"><i class="fa fa-list" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>                            
-                        </div>
-                        <div class="col-md-4 col-sm-6 hidden-xs">
-                            <div class="shop-tab-pill">
-                                <div class="show-label">
-                                    <label>Sort by : </label>
-                                    <select>
-                                        <option selected="selected" value="position">Position</option>
-                                        <option value="Name">Name</option>
-                                        <option value="Price">Price</option>
-                                    </select>
-                                </div>
-                                <div class="show-label showing">
-                                    <label>Showing : </label>
-                                    <select>
-                                        <option selected="selected" value="position">9</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                    </select>
-                                </div>
-                            </div>                          
-                        </div>
-                        <div class="col-sm-4 col-xs-8">
-                            <div class="shop-pagination">
-                                <label>page : </label>
-                                <ul>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Shop View Area -->
-            <!-- Start Brand Area -->
-            <!-- End Brand Area -->
         </section>
         <!-- End page content -->
         <!-- Start footer area -->

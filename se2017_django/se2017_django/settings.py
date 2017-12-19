@@ -124,3 +124,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace("//", "/")
+STATIC_PATH = os.path.join(BASE_DIR, 'media'),
+MEDIA_URL = '/media/'
+

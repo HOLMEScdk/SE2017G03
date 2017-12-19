@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../urlss/.idea/ch06www.iml" filepath="$PROJECT_DIR$/../urlss/.idea/ch06www.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/se2017_django.iml" filepath="$PROJECT_DIR$/.idea/se2017_django.iml" />
     </modules>
   </component>

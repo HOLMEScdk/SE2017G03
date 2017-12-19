@@ -18,8 +18,8 @@
                             <ul class="header-top-style text-capitalize mr-25">
                                 <li><a href="#"><span class="mr-10">我的账户</span><i class="fa fa-angle-down"></i></a>
                                     <ul class="ul-style my-account box-shadow white-bg">
-                                        <li><a href="login.html">登录</a></li>
-                                        <li><a href="my-account.html">我的账户</a></li>
+                                        <li><a href="/login.html">登录</a></li>
+                                        <li><a href="/my-account.html">我的账户</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -32,28 +32,22 @@
                                     <a href="login.html">
                                         <span>{{login_msg}}</span>
                                     </a>
-                                    <!--<div class="ul-style login-register box-shadow white-bg p-30">-->
-                                        <!--<h6 class="mb-20"><strong>登录</strong></h6>-->
-                                        <!--<input type="text" name="s" class="pl-30" placeholder="user name" id="user-name">-->
-                                        <!--<input type="password" name="d" class="pl-30" placeholder="Password" id="password">-->
-<!--{#                                        <label class="remmember">#}-->
-<!--{#                                            <input type="checkbox">#}-->
-<!--{#                                            remember me#}-->
-<!--{#                                        </label>#}-->
-                                        <!--<button value="submit" class="btn-default">登录</button>-->
-                                        <!--<h6 class="mb-20"><strong>或 注册</strong></h6>-->
-                                        <!--<input type="email" name="s" placeholder="Your ID" id="user-email">-->
-                                        <!--<input type="password" name="d" placeholder="Password" id="c-password">-->
-                                        <!--<button value="submit" class="btn-default">注册</button>-->
-                                    <!--</div>-->
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-4 col-xs-6">
                         <div class="header-top-right">
-                            <span class="mr-20"><a href="#"><img alt="" src="{% static 'images/header/search-icon.png'%}"></a></span>
-                            <span><input type="text" class="pl-10" placeholder="Search..."></span>
+                            <span><input type="text" class="pl-10" placeholder="" name ="search" id="input_search"></span>
+                             <span class="mr-20"><a onclick="SearchFunction()"><img alt="" src="{% static 'images/header/search-icon.png'%}"></a></span>
+                             <script language=Javascript>
+                                 function SearchFunction()
+                                 {
+                                 var input = document.getElementById("input_search");
+                                 var key = input.value;
+                                 window.location.href="/search_result&&input_key="+key
+                                 }
+                             </script>
                         </div>
                     </div>
                 </div>
@@ -67,21 +61,19 @@
                                 <span class="service-img b-img">
                                     <img alt="" src="{% static 'images/service.png'%}">
                                 </span>
-                            <span class="service-content ml-15"><strong>13X XXXX XXXX</strong><br>We are open 9 am - 10pm</span>
+                            <span class="service-content ml-15"><strong>13X XXXX XXXX</strong><br>7*24 营业</span>
                         </div>
                     </div>
-                    <!--<div class="col-md-2 col-sm-4 col-xs-12">-->
-                        <!--<div class="header-logo text-center">-->
-                            <!--<a href="/"><img alt="" src="{% static 'images/logo.png'%}"></a>-->
-                        <!--</div>-->
-                    <!--</div>-->
                     <div class="col-md-offset-0 col-md-5 col-sm-offset-0 col-sm-4 col-xs-offset-3 col-xs-6">
                         <div class="shopping-cart">
                             <a href="#">
                                     <span class="shopping-cart-control">
                                         <img alt="" src="{% static 'images/shop.png'%}">
+                                        {# 购物车样式 #}
                                     </span>
-                                <span class="cart-size-value"><strong>购物车(3)</strong><br>$250</span>
+
+                                <span class="cart-size-value"><strong>购物车</strong><br>$</span>
+                                {# 购物车内的物品总数 以及 价格 #}
                             </a>
                             <ul class="shopping-cart-down box-shadow white-bg">
                                 <li class="media">
@@ -91,40 +83,14 @@
                                         <span class="quantity">
                                                 <span class="amount">$195</span>
                                                  x 2
-                                            </span>
+                                        </span>
                                         <a title="Remove this item" class="remove" href="#">
                                             <i class="fa fa-trash-o"></i>
                                         </a>
                                     </div>
                                 </li>
                                 <li class="media">
-                                    <a href="#"><img alt="" src="{% static 'images/cart/2.jpg'%}"></a>
-                                    <div class="cart-item-wrapper">
-                                        <a href="#">Letria postma</a>
-                                        <span class="quantity">
-                                                <span class="amount">$145</span>
-                                                 x 1
-                                            </span>
-                                        <a title="Remove this item" class="remove" href="#">
-                                            <i class="fa fa-trash-o"></i>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <a href="#"><img alt="" src="{% static 'images/cart/3.jpg'%}"></a>
-                                    <div class="cart-item-wrapper">
-                                        <a href="#">Montria jastma</a>
-                                        <span class="quantity">
-                                                <span class="amount">$155</span>
-                                                 x 2
-                                            </span>
-                                        <a title="Remove this item" class="remove" href="#">
-                                            <i class="fa fa-trash-o"></i>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <span class="total-title pull-left">Sub Total</span>
+                                    <span class="total-title pull-left">总价</span>
                                     <span class="total pull-right">$845</span>
                                 </li>
                                 <li class="media">
@@ -137,10 +103,10 @@
                     <nav class="primary-menu">
                         <ul class="header-top-style text-uppercase">
                             <li><a href="/">主页</a></li>
-                            <li><a href="about.html">关于我们</a></li>
-                            <li><a href="shop.html">商品</a></li>
-                            <li><a href="my-account.html">我的账号</a></li>
-                            <li><a href="login.html">登录</a></li>
+                            <li><a href="/about.html">关于我们</a></li>
+                            <li><a href="/shop.html">商品</a></li>
+                            <li><a href="/my-account.html">我的账号</a></li>
+                            <li><a href="/login.html">登录</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -155,10 +121,10 @@
                             <nav id="dropdown">
                                 <ul>
                                     <li><a href="/">主页</a></li>
-                                    <li><a href="about.html">关于我们</a></li>
-                                    <li><a href="shop.html">商品</a></li>
-                                    <li><a href="my-account.html">我的账号</a></li>
-                                    <li><a href="login.html">登录</a></li>
+                                    <li><a href="/about.html">关于我们</a></li>
+                                    <li><a href="/shop.html">商品</a></li>
+                                    <li><a href="/my-account.html">我的账号</a></li>
+                                    <li><a href="/login.html">登录</a></li>
                                 </ul>
                             </nav>
                         </div>

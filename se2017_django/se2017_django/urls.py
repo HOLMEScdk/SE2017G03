@@ -17,16 +17,24 @@ from django.conf.urls import url
 from django.contrib import admin
 from se_work import views as se_views
 from django.conf import settings
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     url(r'^$',se_views.index, name='home'),#use some api to provide a view
-    url(r'index.html$',se_views.index, name='home'),
-    url(r'shop.html$',se_views.shop, name='shop'),
+    url(r'index.html$', se_views.index, name='home'),
+    url(r'shop.html$', se_views.shop, name='shop'),
+    url(r'product.html$', se_views.product, name='product'),
+    #url(r'product_ref.html$', se_views.product_ref, name='product_ref'),
+    url(r'product_ref/(?P<product_id>\w+)/', se_views.product_ref, name='product_ref'),
     url(r'my-account.html$', se_views.my_account, name='my_account'),
     url(r'about.html$', se_views.about, name='about'),
     url(r'login.html$', se_views.login, name='login'),
-    url(r'add$', se_views.add, name='add'),
-    url(r'^add/(\d+)/(\d+)/$', se_views.add2, name='add2'),
     url(r'^admin/', admin.site.urls),
     url(r'^login_fun$', se_views.login_fun),
     url(r'^register_fun$', se_views.register_fun),
-]
+    url(r'^address_fun$', se_views.address_fun),
+    url(r'^product_ref/(?P<product_id>\w+)t/$', se_views.add_cart),
+    url(r'^add_cart$', se_views.add_cart),
+    url(r'search_result&&input_key=(?P<key>\w+)/', se_views.search_result, name='search_result'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
