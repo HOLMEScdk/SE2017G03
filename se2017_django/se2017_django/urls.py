@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'index.html$', se_views.index, name='home'),
     url(r'shop.html$', se_views.shop, name='shop'),
     url(r'product.html$', se_views.product, name='product'),
+    url(r'cart.html$', se_views.cart, name='cart'),
     #url(r'product_ref.html$', se_views.product_ref, name='product_ref'),
     url(r'product_ref/(?P<product_id>\w+)/', se_views.product_ref, name='product_ref'),
     url(r'my-account.html$', se_views.my_account, name='my_account'),
@@ -37,4 +38,5 @@ urlpatterns = [
     url(r'^product_ref/(?P<product_id>\w+)t/$', se_views.add_cart),
     url(r'^add_cart$', se_views.add_cart),
     url(r'search_result&&input_key=(?P<key>\w+)/', se_views.search_result, name='search_result'),
+    url(r'^ajax_add_cars$', se_views.ajax_add_cars),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

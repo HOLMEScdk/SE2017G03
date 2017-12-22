@@ -24,10 +24,12 @@ class Carts(EmbeddedDocument):
     price = FloatField()
     color = StringField()
     amount = IntField()
+    total_money = FloatField()
+    src = StringField()
 
 
 class Order(DynamicDocument):
-    _id = DateTimeField(required=True, primary_key=True, default=datetime.datetime.now)
+    deal_time = DateTimeField(required=True,default=datetime.datetime.now)
     product_name = ListField(StringField())  # Because of the goods in cart may be plenty of therefore we use Listfield here
     class_belong = ListField(StringField())
     color = ListField(StringField())

@@ -55,7 +55,7 @@
                         <ul class="top-page">
                             <li><a href="/">主页</a></li>
                             <li>></li>
-                            <li>{{prodcut.name}}</li>
+                            <li>{{product.name}}</li>
                         </ul>
                     </div>
                 </div>
@@ -101,23 +101,34 @@
                                     <p class="single-shop-item__custom-text"><span>材料:</span> 红毛</p>
                                     <p class="single-shop-item__custom-text"><span>附属项:</span> 无</p>
                                 </div>
-                                <form action="add_cart" method="post" >
-                                    {% csrf_token %}
-{#                                     <span class="quantity form-group">#}
-{#                                      <!--<input type="button" value="-" class="minus">-->#}
-{#                                      <!--<input type="number" step="1" min="0" name="product_quantity" value="1" title="Qty" id="product_quantity" class="form-control ">-->#}
-{#                                      <!--<input type="button" value="+" class="plus">-->#}
-{#                                      </span>#}
+                                <!--<form action="add_cart" method="post" >-->
+
                                     <span class="price">
                                         <span>
                                           <span class="amount">价格：{{product.amount}}元</span>
                                          </span>
                                      </span>
-                                    <input type="submit" class="single-shop-item__button" value="加入购物车  " ></input>
+                                <input  onclick="myAlert()"  style="background-color: #ffffee;color: black; font-weight: bolder" type="button"   value="加入购物车" />
+                              <script type="text/javascript">
+                                   function myAlert()
+                                   {
+                                   var id="{{product.id}}"
+                                     $.ajax({
+                                            url:"/ajax_add_cars",
+                                            data:{"id":id},
+                                            dataType:'text',
+                                            type:'POST',
+                                            success:function(arg){
+                                             alert("添加至购物车成功");
+                                             },
+                                                    });
+                                  }
+                                </script>
                                     <input type="text" style="display: none" name="pro_id" value={{product.id}}>
                                     <!--<button class="single-shop-item__button">生成订单</button>-->
                                     <!--#使用js的onclick实现加入购物车，给button加一个onclick-->
-                                </form>
+                                <!--</form>-->
+
                             </div>
                         </div>
                     </div>

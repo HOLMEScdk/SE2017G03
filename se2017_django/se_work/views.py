@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from pymongo.auth import authenticate
 from .models import *
-
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
 
 def index(request):
     global login_msg
@@ -19,7 +20,7 @@ def product_ref(request, product_id):
     global login_msg
     products = Products.objects(name=product_id)
     product_ = products[0]
-    return render(request, 'product_ref.html', {'product': product_, 'login_msg':login_msg})
+    return render(request, 'product_ref.html', {'product': product_, 'login_msg': login_msg})
 
 
 def login(request):
@@ -66,6 +67,16 @@ def address_fun(request):
                                                })
 
 
+def cart(request):
+    global login_msg
+    if 'user_id' in request.session.keys():
+        customer = Customer.objects(_id=request.session['user_id']).first()
+        carts = customer.carts
+        return render(request, 'cart.html', {'login_msg': login_msg,
+                                              'carts': carts})
+    return render(request, 'cart.html', {'login_msg': login_msg})
+
+
 def about(request):
     global login_msg
     return render(request, 'about.html', {'login_msg': login_msg})
@@ -76,13 +87,13 @@ def login_fun(request):
     if 'username' in request.POST and 'password' in request.POST:
         user_logined = Customer.objects(_id=request.POST["username"])[0]
         if request.POST['password'] == user_logined.password:
-            request.session['user_id'] = user_logined._id          #  从session中获取的id永远是本次登录者的id。
+            request.session['user_id'] = user_logined._id        #  从session中获取的id永远是本次登录者的id。
             login_msg = '欢迎:' + request.session['user_id']
             return render(request, 'index.html', {'login_msg': login_msg})
         else:
             return HttpResponse(request.GET['username']+"是不正确账号")
     else:
-        return render(request, 'index.html',{'login_msg' : login_msg})
+        return render(request, 'index.html', {'login_msg': login_msg})
 
 
 def register_fun(request):
@@ -115,6 +126,26 @@ def add_cart(request):
         html = "product/" + pro.name + ".html"
         return render(request, html, {'login_msg': login_msg})
     return HttpResponse("请先登录账号")
+
+
+def ajax_add_cars(request):
+    username = request.session.get('username', None)
+    if username == '':
+        return render(request, 'login.html')
+    if request.method == "POST":
+        value = request.POST.get("id")
+        product = Products.objects(_id=value)[0]
+        #print("********************************************************************"+product.name )
+        cart = Carts(product_id=value,
+                     product_name=product.name,
+                     size="XLL",
+                     price=product.sale_price,
+                     color="红",
+                     amount=1)
+        customer = Customer.objects(_id=request.session['user_id'])[0]
+        customer.carts.append(cart)
+        customer.save()
+    return HttpResponse(500)
 
 
 def search_result(request, key):
