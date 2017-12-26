@@ -1,0 +1,199 @@
+﻿{% extends "base.html" %}
+{% load staticfiles%}
+<html class="no-js" lang="zxx">
+
+<head>
+    {% block js %}
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>My Account</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png"> -->
+
+    <!-- All css files are included here -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" href="{% static 'css/core.css'%}">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" href="{% static 'css/shortcode/shortcodes.css'%}">
+    <!-- Theme main style -->
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+    <!-- User style -->
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}">
+    <!-- Modernizr JS -->
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js'%}"></script>
+    {% endblock %}
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->  
+
+    <!-- Body main wrapper start -->
+    {% block content %}
+    <div class="wrapper">
+         <div class="breadcrumbs-area breadcrumbs-bg ptb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumbs-inner">
+                            <h5 class="breadcrumbs-disc m-0">带给你最好的购物体验</h5>
+                            <h2 class="breadcrumbs-title text-black m-0">我的账号 </h2>
+                            <ul class="top-page">
+                                <li><a href="/">主页</a></li>
+                                <li>></li>
+                                <li>我的账号</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="page-content" class="page-wrapper pt-10">
+            <div class="my-account-page section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="procced-checkout">
+                                <h4 class="procced-title text-uppercase pb-15 mb-20"><strong>您的账户</strong></h4>
+                                <p>欢迎来的您的账户，在这里您可以管理您的账户信息或者添加收货地址</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="addresses-lists">
+                            <div class="col-xs-12 col-sm-6 col-lg-6">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    <i class="fa fa-home"></i>
+                                                   <span>添加你的第一个地址</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <div class="coupon-info">
+                                                    <h6 class="procced-title text-uppercase pb-15 mb-20">你的地址 </h6>
+                                                    <p class="text-black">*填写下面的地址，填写下面的表格</p>
+                                                    <form action="address_fun" method="post">
+                                                        {% csrf_token %}
+                                                        <div class="shop-select mb-15">
+                                                            <label>名字<span class="required">*</span></label>
+                                                            <input type="text" name="name_address"/>
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label>地址<span class="required">*</span></label>
+                                                            <input type="text" name="address_address"/>
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label>手机号<span class="required">*</span></label>
+                                                            <input type="text" name="phone_address"/>
+                                                        </div>
+                                                        <p class="required">** 你必须填写一个联系的11为手机号码.</p>
+                                                         <div class="col-md-6">
+                                                            <button value="add" type="submit" class="cart-button text-uppercase mt-20" id="add_address">添加</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                    <i class="fa fa-list-ol"></i>
+                                                   <span>我的收货地址</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                <div class="coupon-info">
+                                                    <h6 class="procced-title text-uppercase pb-15 mb-20">你的收货地址 </h6>
+
+                                                    {% for info in info_address %}
+                                                        <table class="table">
+                                                           <thead>
+                                                              <tr>
+                                                                 <th>姓名</th>
+                                                                 <th>地址</th>
+                                                                  <th>电话</th>
+                                                              </tr>
+                                                           </thead>
+                                                           <tbody>
+                                                              <tr>
+                                                                 <td>{{ info.name }}</td>
+                                                                 <td>{{ info.address }}</td>
+                                                                  <td>{{ info.phone }}</td>
+                                                              </tr>
+                                                           </tbody>
+                                                        </table>
+                                                    {% endfor %}
+                                                    <p class="text-black">从上方的表单添加一个收货地址</p>
+                                                </div>
+                                                {% if has_address == Fasle %}
+                                                    <div class="theme-bg">
+                                                        <p class="alert text-white">你还没有添加地址</p>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-6">
+                                <div class="myaccount-link-list">
+                                    <div class="panel panel-default m-0">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a  href="/cart.html">
+                                                    <i class="fa fa-list-ol"></i>
+                                                    <span>订单处理记录</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <!-- End of My Account -->
+            <!-- Start Brand Area -->
+
+            <!-- End Brand Area -->
+        </section>
+        <!-- End page content -->
+        <!-- Start footer area -->
+        <!-- End footer area -->           
+    </div>
+    {% endblock %}
+    <!-- Body main wrapper end -->    
+
+    <!-- Placed js at the end of the document so the pages load faster -->
+
+    <!-- jquery latest version -->
+    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap framework js -->
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <!-- All js plugins included in this file. -->
+    <script src="{% static 'js/plugins.js'%}"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="{% static 'js/main.js'%}"></script>
+
+</body>
+
+</html>
