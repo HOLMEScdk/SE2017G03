@@ -1,0 +1,315 @@
+﻿{% extends "base.html" %}
+{% load staticfiles %}
+<html class="no-js" lang="zxx">
+<head>
+    {% block js %}
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png"> -->
+
+    <!-- All css files are included here -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" href="{% static 'css/core.css'%}">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" href="{% static 'css/shortcode/shortcodes.css'%}">
+    <!-- Theme main style -->
+    <link rel="stylesheet" href="{% static 'style.css'%}" >
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+    <!-- User style -->
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}">
+    <!--移植-->
+    <link rel="stylesheet" href="{% static 'css/move/bootstrap.min.css'%}">
+    <!-- Modernizr JS -->
+{#    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js'%}"></script>#}
+    {% endblock %}
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Body main wrapper start -->
+    {% block content %}
+        <div class="wrapper">
+                <section class="slider-container">
+            <!-- Slider Image -->
+            <div id="mainSlider" class="nivoSlider slider-image">
+                <img src="{% static 'images/slider/1.jpg' %}" alt="main slider" title="#htmlcaption1">
+                <img src="{% static 'images/slider/2.jpg'%}" alt="main slider" title="#htmlcaption2">
+            </div>
+            <!-- Slider Caption 1 -->
+           <div id="htmlcaption1" class="nivo-html-caption slider-caption-1">
+                <div class="slider-progress"></div>
+                <div class="container slider-height">
+                    <div class="row slider-height">
+                        <div class="col-xs-offset-6 col-xs-6 slider-height">
+                            <div class="slide-text">
+                                <div class="middle-text">
+                                    <div class="cap-dec text-black text-uppercase wow fadeInDown" data-wow-duration="0.9s" data-wow-delay="0s">
+                                        <h3>好看</h3>
+                                    </div>
+                                    <div class="cap-title text-black text-uppercase wow fadeInDown" data-wow-duration="1.5s" data-wow-delay="0.5s">
+                                        <h2>来买</h2>
+                                    </div>
+                                    <div class="cap-para wow fadeInDown" data-wow-duration="2s" data-wow-delay="1s">
+                                        <p>好评不断</p>
+                                    </div>
+                                    <div class="cap-shop wow text-uppercase fadeInDown" data-wow-duration="2.5s" data-wow-delay="1.5s">
+                                        <a href="#">不要错过</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Caption 2 -->
+            <div id="htmlcaption2" class="nivo-html-caption slider-caption-2">
+                <div class="slider-progress"></div>
+                <div class="container slider-height">
+                    <div class="row slider-height">
+                        <div class="col-xs-offset-5 col-xs-7 slider-height">
+                            <div class="slide-text">
+                                <div class="middle-text">
+                                    <div class="cap-dec text-black text-uppercase wow fadeInDown" data-wow-duration="0.9s" data-wow-delay="0s">
+                                        <h3>好看</h3>
+                                    </div>
+                                    <div class="cap-title text-black text-uppercase wow fadeInDown" data-wow-duration="1.5s" data-wow-delay="0.5s">
+                                        <h2>来买</h2>
+                                    </div>
+                                    <div class="cap-para wow fadeInDown" data-wow-duration="2s" data-wow-delay="1s">
+                                        <p>好评不断</p>
+                                    </div>
+                                    <div class="cap-shop wow fadeInDown" data-wow-duration="2.5s" data-wow-delay="1.5s">
+                                        <a href="#">不要错过</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of slider area -->
+        <!-- Start page content -->
+        <section id="page-content" class="page-wrapper">  
+            <!-- Start About us Area -->
+            <div class="why-us section-padding text-center">
+                <div class="col-md-12">
+                    <div class="section-title text-center mb-35">
+                        <h2 class="text-uppercase"><strong>分类导航</strong></h2>
+                        <img alt="" src="{% static 'images/section-border.png' %}">
+                    </div>
+                </div>
+            </div>
+            <!-- End About us Area -->
+            <!-- Start Banner Area -->
+            <div class="banner-area">
+                <div class="container">
+                    <div class="row rp-style">
+                        <div class="col-sm-4 cp-style">
+                            <div class="banner-inner">
+                                <a class="test-popup-link banner-img" href="{% static 'images/banner/1.jpg' %}">
+                                    <img src="{% static 'images/banner/1.jpg' %}" alt="">
+                                </a>
+                                <div class="banner-text banner-text-1">
+                                    <a href="#" class="banner-heading text-uppercase text-right">新品大衣</a>
+                                    <h3 class="banner-title text-uppercase text-right">天冷了，你需要一件保暖又好看的</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8 cp-style">
+                            <div class="row rp-style">
+                                <div class="col-sm-8 cp-style">
+                                    <div class="banner-inner">
+                                        <a class="test-popup-link banner-img" href="{% static 'images/banner/2.jpg'%}">
+                                            <img src="{% static 'images/banner/2.jpg'%}" alt="">
+                                        </a>
+                                        <div class="banner-text banner-text-2 text-center">
+                                            <a href="#" class="banner-heading text-uppercase text-right">买了不嫌多的</a>
+                                            <h3 class="banner-title-x text-uppercase">上衣</h3>
+                                            <h3 class="banner-title text-uppercase text-right">还有配饰</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 cp-style">
+                                    <div class="banner-inner">
+                                        <a class="test-popup-link banner-img" href="{% static 'images/banner/3.jpg' %}">
+                                            <img src="{% static 'images/banner/3.jpg'%}" alt="">
+                                        </a>
+                                        <div class="banner-text banner-text-3">
+                                            <a href="#" class="banner-heading text-uppercase text-right">鞋</a>
+                                            <h3 class="banner-title text-uppercase text-right">永远少一双</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row rp-style mt-8">
+                                <div class="col-sm-4 cp-style">
+                                    <div class="banner-inner">
+                                        <a class="test-popup-link banner-img" href="{% static 'images/banner/4.jpg'%}">
+                                            <img src="{% static 'images/banner/4.jpg'%}" alt="">
+                                        </a>
+                                        <div class="banner-text banner-text-4 text-right">
+                                            <a href="#" class="banner-heading text-uppercase text-right">包</a>
+                                            <h3 class="banner-title text-uppercase text-right">治百病</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8 cp-style">
+                                    <div class="banner-inner m-0">
+                                        <a class="test-popup-link banner-img" href="{% static 'images/banner/5.jpg'%}">
+                                            <img src="{% static  'images/banner/5.jpg'%}" alt="">
+                                        </a>
+                                        <div class="banner-text banner-text-5 text-center">
+                                            <a href="#" class="banner-heading text-uppercase text-right">下衣</a>
+                                            <h3 class="banner-title text-uppercase text-right">别忘了</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Banner Area -->
+            <!-- Start Featured product Area -->
+            <div class="featured-product-area section-padding">
+                <div class="container">
+                    <div class="row rp-style">
+                        <div class="col-md-12">
+                            <div class="section-title text-center mb-35">
+                                <h2 class="text-uppercase"><strong>主推产品</strong></h2>
+                                <p class="text-defualt">店长倾力推荐</p>
+                                <img alt="" src="{% static 'images/section-border.png'%}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rp-style">
+                        <div class="featured-carousel indicator-style">
+                            {% for each in products %}
+                            <div class="product-container cp-style-2">
+                                <div class="product-inner">
+                                    <a href="product_ref/{{each.name}}">
+                                        <div class="product-img b-img">
+                                            <img alt="" src="/media/{{each.src}}">
+                                        </div>
+                                    </a>
+                                    <span class="product-tag text-uppercase black-bg">new</span>
+                                    <ul class="quick-veiw text-center">
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-refresh"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    </ul>
+                                    <div class="product-text pt-15"style="text-align: center;">
+
+                                        <ul class="pricing list-inline pull-center">
+                                            <li class="text-right c-price">{{ each.sale_price }}</li>
+                                        </ul>
+                                        <div class="clear"></div>
+                                        <h6 class="product-name m-0"style="text-align: center">
+                                            <a title="Eletria ostma" href="#"> {{ each.name }}</a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Featured product Area -->
+            <!-- Start New Arrival Area  -->
+            <div class="new-arrival-area">
+                <div class="container">
+                    <div class="row rp-style-2">
+                        <div class="col-md-12">
+                            <div class="section-title text-center mb-35">
+                                <h2 class="text-uppercase"><strong>新品推介</strong></h2>
+                                <p class="text-defualt">所有新品</p>
+                                <img alt="" src="{% static 'images/section-border.png' %}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rp-style-2">
+                        <div class="featured-carousel indicator-style">
+                            {% for each in products %}
+                            <div class="product-container cp-style-2">
+                                <div class="product-inner">
+                                     <a href="product_ref/{{each.name}}">
+                                        <div class="product-img b-img">
+                                             <img alt="" src="/media/{{each.src}}">
+                                        </div>
+                                    </a>
+                                    <span class="product-tag text-uppercase orang-bg">-20%</span>
+                                    <ul class="quick-veiw text-center">
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-refresh"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    </ul>
+                                    <div class="product-text" style="text-align: center;">
+
+                                        <ul class="pricing list-inline pull-center">
+                                            <li class="text-center c-price">{{ each.sale_price }}</li>
+                                        </ul>
+                                        <div class="clear"></div>
+                                        <h6 class="product-name"style="text-align: center">
+                                            <a href="#" title="Eletria ostma">{{ each.name }}</a>
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="product-inner mt-35">
+                                     <a href="product_ref/{{each.name}}">
+                                        <div class="product-img b-img">
+                                          <img alt="" src="/media/{{each.src}}">
+                                        </div>
+                                    </a>
+                                    <ul class="quick-veiw text-center">
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-refresh"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    </ul>
+                                    <div class="product-text" style="text-align: center;">
+                                        <ul class="pricing list-inline pull-center"style="text-align: center">
+                                            <li class="text-center c-price">{{ each.sale_price }}</li>
+                                        </ul>
+                                        <div class="clear"></div>
+                                        <h6 class="product-name" style="text-align: center">
+                                            <a href="#" title="Eletria ostma">{{ each.name }}</a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Of New Arrival Area  -->
+
+        </section>
+    </div>
+    {% endblock %}
+{#    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>#}
+    <!-- Bootstrap framework js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- All js plugins included in this file. -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
