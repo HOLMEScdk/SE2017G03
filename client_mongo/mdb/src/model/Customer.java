@@ -57,4 +57,14 @@ public class Customer {
     Carts[] carts;
     Order[] order;
     Date registert_time;
+
+    public int getSelect_rank() {
+        return select_rank;
+    }
+
+    public void setSelect_rank(int select_rank) {
+        this.select_rank = select_rank;
+    }
+
+    int select_rank;
 }

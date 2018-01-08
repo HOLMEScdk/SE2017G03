@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/ui/FrmCustomerManager.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/ui/FrmMain.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/ui/FrmOrderManager.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/ui/FrmProductManager.java" charset="UTF-8" />
-    <file url="PROJECT" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/ui/FrmProductManager_Add.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/ui/FrmProductManager_Modify.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tests/control/customerManagerTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tests/control/orderManagerTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tests/control/productsManagerTest.java" charset="UTF-8" />
+    <file url="PROJECT" charset="GBK" />
   </component>
 </project>

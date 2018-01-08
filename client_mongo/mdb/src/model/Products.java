@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Products {
@@ -19,21 +20,7 @@ public class Products {
         this.class_belong = class_belong;
     }
 
-    public String[] getSize() {
-        return size;
-    }
 
-    public void setSize(String[] size) {
-        this.size = size;
-    }
-
-    public String[] getColor() {
-        return color;
-    }
-
-    public void setColor(String[] color) {
-        this.color = color;
-    }
 
     public Double getRaw_price() {
         return raw_price;
@@ -75,22 +62,85 @@ public class Products {
         this.time_end_sale = time_end_sale;
     }
 
-    public int getAmount() {
+    String id;
+    String name;
+    String class_belong;
+
+//    public String[] getSize() {
+//        return size;
+//    }
+//
+//    public void setSize(String[] size) {
+//        this.size = size;
+//    }
+//
+//    public String[] getColor() {
+//        return color;
+//    }
+//
+//    public void setColor(String[] color) {
+//        this.color = color;
+//    }
+
+    ArrayList<String> size;
+    ArrayList<String> color;
+
+    public ArrayList<String> getSize() {
+        return size;
+    }
+
+    public void setSize(ArrayList<String> size) {
+        this.size = size;
+    }
+
+    public ArrayList<String> getColor() {
+        return color;
+    }
+
+    public void setColor(ArrayList<String> color) {
+        this.color = color;
+    }
+
+    public ArrayList<Integer> getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(ArrayList<Integer> amount) {
         this.amount = amount;
     }
 
-    String name;
-    String class_belong;
-    String[] size;
-    String[] color;
     Double raw_price;
     Double sale_price;
     Double agent_price;
     Date time_import;
     String time_end_sale;
-    int amount;
+    ArrayList<Integer> amount;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
+    }
+
+    String src;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    String description;
 }

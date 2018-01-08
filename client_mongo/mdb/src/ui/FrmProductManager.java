@@ -1,21 +1,15 @@
 package ui;
 
-import control.productsManager;
-import model.Products;
+import control.ProductsManager;
 
-import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.Toolkit;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.List;
-
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 
 
 public class FrmProductManager extends JDialog implements ActionListener {
@@ -23,32 +17,34 @@ public class FrmProductManager extends JDialog implements ActionListener {
     private Button btnAdd = new Button("新增商品");
     private Button btnModify = new Button("修改商品");
     private Button btnStop = new Button("删除商品");
-    private JComboBox cmbState=new JComboBox(new String[]{"L","XX","X"});
+    private Button btnRefresh = new Button("刷新");
     private JTextField edtKeyword = new JTextField(10);
     private Button btnSearch = new Button("查找");
-    private Object tblTitle[]={"商品编号","商品编号","商品类别","价格","数量"};
+    private Object tblTitle[]={"商品编号","商品名称","商品类别","描述","尺码","颜色", "成本价","售价","代理价","颜色，尺码，对应数量","上架时间", "销售结束时间"};
     private Object tblData[][];
-    List<Products> products=null;
+    List<String[]> products=null;
     DefaultTableModel tablmod=new DefaultTableModel();
     private JTable dataTable=new JTable(tablmod);
     private void reloadTable(){
-//        try {
-//            products=(new productsManager()).searchproducts(this.edtKeyword.getText(), this.cmbState.getSelectedItem().toString());
-//            tblData =new Object[products.size()][5];
-//            for(int i=0;i<products.size();i++){
-//                tblData[i][0]=products.get(i).getBarcode();
-//                tblData[i][1]=products.get(i).getproductsname();
-//                tblData[i][2]=products.get(i).getPubName();
-//                tblData[i][3]=products.get(i).getPrice()+"";
-//                tblData[i][4]=products.get(i).getState();
-//            }
-//            tablmod.setDataVector(tblData,tblTitle);
-//            this.dataTable.validate();
-//            this.dataTable.repaint();
-//        } catch (BaseException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
+        products = (new ProductsManager()).searchProducts();
+        tblData =new Object[products.size()][12];
+        for(int i=0;i<products.size();i++){
+            tblData[i][0]=products.get(i)[0];
+            tblData[i][1]=products.get(i)[1];
+            tblData[i][2]=products.get(i)[2];
+            tblData[i][3]=products.get(i)[3];
+            tblData[i][4]=products.get(i)[4];
+            tblData[i][5]=products.get(i)[5];
+            tblData[i][6]=products.get(i)[6];
+            tblData[i][7]=products.get(i)[7];
+            tblData[i][8]=products.get(i)[8];
+            tblData[i][9]=products.get(i)[9];
+            tblData[i][10]=products.get(i)[10];
+            tblData[i][11]=products.get(i)[11];
+        }
+            tablmod.setDataVector(tblData,tblTitle);
+            this.dataTable.validate();
+            this.dataTable.repaint();
     }
 
     public FrmProductManager(Frame f, String s, boolean b) {
@@ -57,10 +53,9 @@ public class FrmProductManager extends JDialog implements ActionListener {
         toolBar.add(btnAdd);
         toolBar.add(btnModify);
         toolBar.add(btnStop);
-        toolBar.add(cmbState);
-        toolBar.add(edtKeyword);
-        toolBar.add(btnSearch);
-
+        //toolBar.add(edtKeyword);
+        //toolBar.add(btnSearch);
+        toolBar.add(btnRefresh);
 
         this.getContentPane().add(toolBar, BorderLayout.NORTH);
 
@@ -80,6 +75,7 @@ public class FrmProductManager extends JDialog implements ActionListener {
         this.btnModify.addActionListener(this);
         this.btnStop.addActionListener(this);
         this.btnSearch.addActionListener(this);
+        this.btnRefresh.addActionListener(this);
         this.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 //System.exit(0);
@@ -91,50 +87,41 @@ public class FrmProductManager extends JDialog implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
         if(e.getSource()==this.btnAdd){
-//            FrmproductsManager_Addproducts dlg=new FrmproductsManager_Addproducts(this,"Ìí¼ÓÍ¼Êé",true);
-//            dlg.setVisible(true);
-//            if(dlg.getproducts()!=null){//Ë¢ÐÂ±í¸ñ
-//                this.reloadTable();
-//            }
+            FrmProductManager_Add dlg=new FrmProductManager_Add(this,"添加商品",true);
+            dlg.setVisible(true);
+            if(dlg.getProduct()!=null){
+                this.reloadTable();
+            }
         }
         else if(e.getSource()==this.btnModify){
-//            int i=this.dataTable.getSelectedRow();
-//            if(i<0) {
-//                JOptionPane.showMessageDialog(null,  "ÇëÑ¡ÔñÍ¼Êé","ÌáÊ¾",JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//            Beanproducts product=this.products.get(i);
-//
-//            FrmproductsManager_Modifyproducts dlg=new FrmproductsManager_Modifyproducts(this,"ÐÞ¸ÄÍ¼Êé",true,product);
-//            dlg.setVisible(true);
-//            if(dlg.getproducts()!=null){//Ë¢ÐÂ±í¸ñ
-//                this.reloadTable();
-//            }
+            int i=this.dataTable.getSelectedRow();
+            if(i<0) {
+                JOptionPane.showMessageDialog(null,  "请选择商品","错误",JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            String[] product=products.get(i);
+            FrmProductManager_Modify dlg=new FrmProductManager_Modify(this,"修改信息",true,product);
+            dlg.setVisible(true);
+            if(dlg.getProduct()!=null){
+                this.reloadTable();
+            }
         }
         else if(e.getSource()==this.btnStop){
-//            int i=this.dataTable.getSelectedRow();
-//            if(i<0) {
-//                JOptionPane.showMessageDialog(null,  "ÇëÑ¡ÔñÍ¼Êé","ÌáÊ¾",JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//            Beanproducts product=this.products.get(i);
-//            if(!"ÔÚ¿â".equals(product.getState())){
-//                JOptionPane.showMessageDialog(null,  "µ±Ç°Í¼ÊéÃ»ÓÐ¡®ÔÚ¿â¡¯","ÌáÊ¾",JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//            if(JOptionPane.showConfirmDialog(this,"È·¶¨É¾³ý"+product.getproductsname()+"Âð£¿","È·ÈÏ",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
-//                product.setState("ÒÑÉ¾³ý");
-//                try {
-//                    (new productsManager()).modifyproducts(product);
-//                    this.reloadTable();
-//                } catch (BaseException e1) {
-//                    JOptionPane.showMessageDialog(null, e1.getMessage(),"´íÎó",JOptionPane.ERROR_MESSAGE);
-//                }
-//            }
+            int i=this.dataTable.getSelectedRow();
+            if(i<0) {
+                JOptionPane.showMessageDialog(null,  "请选择商品","错误",JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            String id = this.products.get(i)[1];
+            (new ProductsManager()).deleteProducts(id);
+                    this.reloadTable();
         }
         else if(e.getSource()==this.btnSearch){
            // this.reloadTable();
         }
-
+        else if(e.getSource()==this.btnRefresh){
+            this.reloadTable();
+        }
     }
 }
