@@ -1,0 +1,185 @@
+
+procedure <处理上传商品的请求> interface<jdbc请求对象>
+begin
+    连接数据库
+    if <请求是get请求> then
+        获取商品信息
+        begin <添加商品信息到数据库>
+            执行数据库insert语句 from products
+            if 成功 then
+                print ‘上传成功’界面
+                return succeed
+            else
+                print ‘上传失败’
+                return failed 
+        end
+    else
+       return failed
+end
+
+procedure <处理修改商品的请求> interface<jdbc请求对象>
+begin
+    连接数据库
+    if <请求是get请求> then
+        获取待修改商品信息
+        if 商品存在 then
+            获取修改信息
+            begin <修改数据库商品信息>
+                执行数据库update语句 from products
+                if 成功 then
+                    print ‘修改成功’界面
+                    return succeed
+                else
+                    print ‘修改失败’
+                    return failed
+            end
+        else 
+            print ‘请正确选择商品’
+            return failed  
+    else
+       return failed
+end
+
+procedure <处理删除商品的请求> interface<jdbc请求对象>
+begin
+    连接数据库
+    if <请求是get请求> then
+        获取待删除商品信息
+        if 商品存在 then
+            begin <删除数据库商品信息>
+                执行数据库delete语句 from products
+                if 成功 then
+                    print ‘删除成功’界面
+                    return succeed
+                else
+                    print ‘删除失败’
+                    return failed
+            end
+        else 
+            print ‘请正确选择商品’
+            return failed  
+    else
+       return failed
+end
+
+procedure <处理删除用户信息的请求> interface<jdbc请求对象>
+begin
+    连接数据库
+    if <请求是get请求> then
+        获取待删除用户信息
+        if 用户存在 then
+            begin <删除数据库用户信息>
+                执行数据库delete语句 from customers
+                if 成功 then
+                    print ‘删除成功’界面
+                    return succeed
+                else
+                    print ‘删除失败’
+                    return failed
+            end
+        else 
+            print ‘请正确选择用户’
+            return failed  
+    else
+       return failed
+end
+
+procedure <处理查看用户信息统计的请求> interface<jdbc请求对象>
+begin
+    连接数据库
+    if <请求是get请求> then
+        request = 查询条件
+        if request==商品类型 then
+            begin <按商品类型对数据库用户信息查询>
+                执行数据库select语句 from customers
+                print 查询结果
+                return succeed
+            end
+        else if request==年龄范围 then
+            begin <按年龄范围对数据库用户信息查询>
+                执行数据库select语句 from customers
+                print 查询结果
+                return succeed
+            end
+        else if request==购买数量 then
+            begin <按购买数量对数据库用户信息查询>
+                执行数据库select语句 from customers
+                print 查询结果
+                return succeed
+            end
+        else if request==购买频率 then
+            begin <按购买频率对数据库用户信息查询>
+                执行数据库select语句 from customers
+                print 查询结果
+                return succeed
+            end
+        else 
+            return failed  
+    else
+       return failed
+end
+
+procedure <处理订单处理的请求> interface<jdbc请求对象>
+begin
+    连接数据库
+    if <请求是get请求> then
+        获取待待处理订单
+        opera = 操作
+        begin <根据opera修改数据库用户信息>
+            执行数据库update语句 from order
+            if 成功 then
+                print ‘处理成功’界面
+                return succeed
+            else
+                print ‘处理失败’
+                return failed
+            end
+        else 
+            return failed  
+    else
+       return failed
+end
+
+procedure <处理删除订单的请求> interface<jdbc请求对象>
+begin
+    连接数据库
+    if <请求是get请求> then
+        获取待删除订单信息
+        if 订单存在 then
+            begin <删除数据库订单信息>
+                执行数据库delete语句 from order
+                if 成功 then
+                    print ‘删除成功’界面
+                    return succeed
+                else
+                    print ‘删除失败’
+                    return failed
+            end
+        else 
+            print ‘请正确选择订单’
+            return failed  
+    else
+       return failed
+end
+
+procedure <处理订单查询的请求> interface<jdbc请求对象>
+begin
+    连接数据库
+    if <请求是get请求> then
+        begin <数据库订单信息查询>
+            执行数据库select语句 from order
+            print 查询结果
+    else
+       return failed
+end
+
+procedure <处理查看收支记录统计的请求> interface<jdbc请求对象>
+begin
+    连接数据库
+    if <请求是get请求> then
+        begin <数据库收支记录信息查询>
+            执行数据库select语句 from order
+            print 查询结果
+    else
+       return failed
+end

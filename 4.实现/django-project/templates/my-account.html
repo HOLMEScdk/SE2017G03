@@ -1,0 +1,409 @@
+﻿{% extends "base.html" %}
+{% load staticfiles%}
+<html class="no-js" lang="zxx">
+
+<head>
+    {% block js %}
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>My Account</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png"> -->
+
+    <!-- Toastr JS -->
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css2/toastr.js.map' %}">
+    <link rel="stylesheet" href="{% static 'css/toastr.css' %}">
+    <script src="{% static 'js/toastr.min.js' %}"></script>
+    <!-- All css files are included here -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" href="{% static 'css/core.css'%}">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" href="{% static 'css/shortcode/shortcodes.css'%}">
+    <!-- Theme main style -->
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+    <!-- User style -->
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}">
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% endblock %}
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Body main wrapper start -->
+    {% block content %}
+    <div class="wrapper">
+         <div class="breadcrumbs-area breadcrumbs-bg ptb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumbs-inner">
+                            <h5 class="breadcrumbs-disc m-0">带给你最好的购物体验</h5>
+                            <h2 class="breadcrumbs-title text-black m-0">个人信息</h2>
+                            <ul class="top-page">
+                                <li><a href="/">主页</a></li>
+                                <li>></li>
+                                <li>个人信息</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="page-content" class="page-wrapper pt-10">
+            <div class="my-account-page section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="procced-checkout">
+                                <h4 class="procced-title text-uppercase pb-15 mb-20"><strong>您的账户</strong></h4>
+                                <p>欢迎来的您的账户，在这里您可以管理您的账户信息或者添加收货地址</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="addresses-lists">
+                            <div class="col-xs-12 col-sm-6 col-lg-6">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    <img src="{% static 'fonts/mainpage.svg' %}" alt="#">
+                                                   <span>添加你的收货地址</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <div class="coupon-info">
+                                                    <h6 class="procced-title text-uppercase pb-15 mb-20">你的地址 </h6>
+                                                    <p class="text-black">*填写下面的地址，填写下面的表格</p>
+                                                    <form action="address_fun" method="post">
+                                                        {% csrf_token %}
+                                                        <div class="shop-select mb-15">
+                                                            <label>名字<span class="required">*</span></label>
+                                                            <input type="text" name="name_address" id="name_address"/>
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label>地址<span class="required">*</span></label>
+                                                            <input type="text" name="address_address"id="address_address"/>
+                                                        </div>
+                                                        <div class="shop-select mb-15">
+                                                            <label>手机号<span class="required">*</span></label>
+                                                            <input type="text" name="phone_address" id="phone_address"/>
+                                                        </div>
+                                                        <p class="required">** 你必须填写一个联系的11为手机号码.</p>
+                                                         <div class="col-md-6">
+                                                            <button value="add" type="button" class="cart-button text-uppercase mt-20" id="add_address">添加</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <script>
+                                        add_address.onclick = function () {
+                                                var name_address = document.getElementById("name_address").value;
+                                                var address_address = document.getElementById("address_address").value;
+                                                var phone_address = document.getElementById("phone_address").value;
+                                                $.ajax({
+                                                    url: '/address_fun',
+                                                    data: {"name_address": name_address,
+                                                        "address_address": address_address,
+                                                        "phone_address":phone_address},
+                                                    dataType: 'text',
+                                                    type: 'POST',
+                                                    success: function (data) {
+                                                        mes = JSON.parse(data)["mess"];
+                                                        new_address = JSON.parse(data)["new_address"]
+                                                        has_address = JSON.parse(data)["has_address"]
+                                                        if (mes == '成功添加地址') {
+                                                            toastr.options.positionClass = 'toast-top-center';
+                                                            $("#tbody").append(
+                                                                "<tr id=" + new_address['rank']+">"+
+                                                                "<td onclick=\"MyAlert2(this)\">"+new_address['name']+"</td>" +
+                                                                "<td onclick=\"MyAlert2(this)\">"+new_address['address']+"</td>" +
+                                                                "<td onclick=\"MyAlert2(this)\">"+new_address['phone']+"</td>" +
+                                                                "<td>" +
+                                                                "<li><img src=\"{% static 'fonts/trash.svg' %}\"alt=\"#\" onclick=\"MyAlert1(this)\"> </li>" +
+                                                                "</td>" +
+                                                                "</tr>"
+                                                            );
+                                                            toastr.success(mes);
+                                                        } else {
+                                                            toastr.options.positionClass = 'toast-top-center';
+                                                            toastr.error(mes);
+                                                        }
+                                                    }
+                                                })
+                                            }
+                                        </script>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                    <img src="{% static 'fonts/list.svg' %}" alt="#">
+                                                   <span>我的收货地址</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                <h6 class="procced-title text-uppercase pb-15 mb-20">选择默认收货地址(点击下列收货地址列表) </h6>
+                                                <table class="table table-condensed" id="address_tbody" >
+                                                    <thead>
+                                                              <tr>
+                                                                    <th><span>姓名</span></th>
+                                                                    <th>地址</th>
+                                                                     <th>电话</th>
+                                                              </tr>
+                                                   </thead>
+                                                <tbody id="tbody">
+                                                    {% for info in info_address %}
+                                                              <tr id = "{{ info.rank}}" >
+                                                                 <td onclick="a{{info.rank}}()">{{ info.name }}</td>
+                                                                 <td onclick="a{{info.rank}}()">{{ info.address }}</td>
+                                                                  <td onclick="a{{info.rank}}()">{{ info.phone }}</td>
+                                                                  <td>
+                                                                          <li><img src="{% static 'fonts/trash.svg' %}" alt="#" onclick="MyAlert1(this)"> </li>
+                                                                  </td>
+                                                                  <script>
+                                                                  function del() {
+                                                                          var msg = "确定设为收货地址吗？\n";
+                                                                          if (confirm(msg)==true){
+                                                                          return true;
+                                                                          }else{
+                                                                          return false;
+                                                                          }
+                                                                         }
+                                                                   function a{{info.rank}}()
+                                                                   {
+                                                                   if(del()==true){
+                                                                    $.ajax({
+                                                                    url: "/select_rank",
+                                                                    data: {"rank": {{info.rank}}},
+                                                                    dataType: 'text',
+                                                                    type: 'POST',
+                                                                    success: function (data) {
+                                                                    var red_td_true = document.getElementById("red_td").value
+                                                                    document.getElementById(red_td_true).style.backgroundColor="#FFFFFF"
+                                                                    document.getElementById("{{info.rank}}").style.backgroundColor="#FAFAFA"
+                                                                    document.getElementById("red_td").value = "{{info.rank}}";
+                                                                    }
+                                                                    });
+
+                                                                              }                                 }
+                                                                   </script>
+                                                              </tr>
+                                                    {% endfor %}
+                                                <script>
+                                                     if("{{red_rnak}}"!="")
+                                                     document.getElementById("{{red_rank}}").style.backgroundColor="#FAFAFA";
+                                                </script>
+                                                <input id="red_td" value="{{red_rank}}"  style="display:none">
+                                                    </tbody>
+                                                </table>
+                                     <script type="text/javascript">
+                                        function del() {
+                                               var msg = "确定设为收货地址吗？\n";
+                                               if (confirm(msg)==true){
+                                               return true;
+                                                }else{
+                                                return false;
+                                                }
+                                                 }
+                                        function  MyAlert2(obj)
+                                        {
+                                        var rank = obj.parentNode.id;
+                                        Rank = rank.toString();
+                                         if(del()==true){
+                                            $.ajax({
+                                            url: "/select_rank",
+                                            data: {"rank": Rank},
+                                            dataType: 'text',
+                                            type: 'POST',
+                                            success: function (data) {
+                                            try{
+                                            var red_td_true = document.getElementById("red_td").value;
+                                            document.getElementById(red_td_true).style.backgroundColor="#FFFFFF";
+                                            }
+                                            catch(error)
+                                            {}
+                                            document.getElementById("red_td").value = Rank;
+                                            document.getElementById(Rank).style.backgroundColor="#FAFAFA";
+                                             }
+                                             });
+                                             }
+                                        }
+                                        function MyAlert1(obj) {
+                                            var rank = obj.parentNode.parentNode.parentNode.id;
+                                            if(rank ==  document.getElementById("red_td").value)
+                                            {
+                                            toastr.options.positionClass = 'toast-top-center';
+                                            toastr.error("该收货地址正在被使用，无法删除");
+                                            }
+                                            else
+                                            {
+                                            $.ajax({
+                                                url: '/delete_address',
+                                                data: {"rank": rank},
+                                                dataType: 'text',
+                                                type: 'GET',
+                                                success: function (data) {
+                                                    rank = parseInt(JSON.parse(data)["rank"]);
+                                                    parent = document.getElementById('tbody');
+                                                    var alltbody = parent.getElementsByTagName("tr");
+                                                    for(var i=0;i<alltbody.length;i++){
+                                                        var tr = alltbody[i];
+                                                        if(tr.id==rank){
+                                                            parent.removeChild(alltbody[i]);
+                                                            break;
+                                                        }
+                                                    }
+                                                    toastr.options.positionClass = 'toast-top-center';
+                                                    toastr.success("成功删除收货地址");
+                                                }
+                                            });
+                                            }
+                                        }
+                                    </script>
+                                                    <p class="text-black">从上方的表单添加一个收货地址</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-xs-12 col-sm-6 col-lg-6">
+                                    <div class="panel panel-default">
+                                        <!-- Default panel contents -->
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                                    <img src="{% static 'fonts/mainpage.svg' %}" alt="#">
+                                                   <span>查看订单状态</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                      <!-- List group -->
+                                                 <table class="table table-condensed">
+                                               <thead>
+                                                  <tr>
+                                                      <th><span>下单<br>时间</span></th>
+                                                      <th><span>订单<br>状态</span></th>
+                                                      <th><span>订单<br>金额</span></th>
+                                                  </tr>
+                                                 </thead>
+                                                      {% for info in order_info %}
+                                                             <tbody>
+                                                              <tr id="{{ info.id }}" onclick="show_detail(this)" type="button"  data-toggle="modal" data-target="#myModal">
+                                                                 <td>{{ info.time }}</td>
+                                                                 <td>{{ info.status }}</td>
+                                                                  <td>{{ info.money}}</td>
+                                                              </tr>
+                                                           </tbody>
+                                                        {% endfor %}
+                                                </table>
+                                            <script>
+                                            function show_detail(obj) {
+                                            var id = obj.id;
+                                        document.getElementById("btncancle").onclick();
+                                            $.ajax({
+                                                url: '/show_detail_order',
+                                                data: {"id": id},
+                                                dataType: 'text',
+                                                type: 'GET',
+                                                success: function (data) {
+                                                    info = JSON.parse(data)["order_info"];
+                                                    if (typeof info == "string")
+                                                        return 0;
+                                                    {#toastr.options.positionClass = 'toast-top-center';#}
+                                                    {#alert(info.length)#}
+                                                    {#var msg = "购买商品:\n";#}
+                                                    msg = "";
+                                                     for (var i = 0; i < info.length; i++) {
+                                                         msg += "<tr>"+"<td>"+info[i].name+"</td>"+
+                                                             "<td>"+info[i].size+"</td>"+
+                                                            "<td>"+info[i].amount+"</td>"+
+                                                             "<td>"+info[i].price+"</td>"+
+                                                             "</tr>";
+                                                     }
+                                                     $("#modal-tbody").append(msg);
+
+                                                }
+                                            });
+                                         }
+                                            </script>
+                                             </table>
+{#                                        <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#myModal"> Launch demo modal </button>#}
+                                                        <!-- Modal -->
+                                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                              <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">订单详情</h4>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                        <table class="table table-condensed">
+                                                            <thead>
+                                                              <tr>
+                                                                  <th><span>商品名称</span></th>
+                                                                  <th><span>尺码</span></th>
+                                                                  <th><span>数量</span></th>
+                                                                  <th><span>单价</span></th>
+                                                              </tr>
+                                                             </thead>
+                                                            <tbody id="modal-tbody">
+                                                            </tbody>
+                                                        </table>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button id="btncancle" type="button" class="btn btn-default" data-dismiss="modal" onclick="delete_multi()">Close</button>
+                                                  </div>
+                                                    <script>
+                                                        function delete_multi(){
+                                                            var id =  document.getElementById("modal-tbody");
+                                                            var childs = id.childNodes;
+                                                            for(var i = 0; i < childs.length; i++){
+                                                                id.removeChild(childs[i]);
+                                                            }
+                                                        }
+                                                    </script>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of My Account -->
+            <!-- Start Brand Area -->
+
+            <!-- End Brand Area -->
+        </section>
+        <!-- End page content -->
+        <!-- Start footer area -->
+        <!-- End footer area -->
+    </div>
+    {% endblock %}
+</body>
+
+</html>

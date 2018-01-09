@@ -1,0 +1,186 @@
+﻿{% extends "base.html" %}
+{% load staticfiles %}
+<html class="no-js" lang="zh">
+<head>
+    {% block js %}
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login / Register</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/core.css'%}">
+    <link rel="stylesheet" href="{% static 'css/shortcode/shortcodes.css'%}">
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}">
+    <link rel="stylesheet" href="{% static 'css/move/main.css'%}" id="color-switcher-link">
+    <link rel="stylesheet" href="{% static 'css/move/animations.css'%}">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css2/toastr.js.map' %}">
+    <link rel="stylesheet" href="{% static 'css/toastr.css' %}">
+    <script src="{% static 'js/toastr.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    {% endblock %}
+</head>
+<body>
+<!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+<!-- Body main wrapper start -->
+{% block content %}
+    <div class="wrapper">
+        <!-- Start of header area --
+        <!-- End of header area -->
+        <!-- Start Breadcrumbs Area -->
+        <div class="breadcrumbs-area breadcrumbs-bg ptb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumbs-inner">
+                            <h5 class="breadcrumbs-disc m-0">带给你最好的的购物体验</h5>
+                            <h2 class="breadcrumbs-title text-black m-0">登录 / 注册</h2>
+                            <ul class="top-page">
+                                <li><a href="/">主页</a></li>
+                                <li>></li>
+                                <li>登录 / 注册</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumbs Area -->
+        <!-- Start page content -->
+        <section id="page-content" class="page-wrapper pt-10">
+            <!-- Banner Area Start -->
+
+            <!-- Banner Area End -->
+            <!-- Start Register Area -->
+            <div class="register-area pt-90">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="registered-customers">
+                                <h4 class="text-uppercase mb-20"><strong>用户登录</strong></h4>
+                                <form action="login_fun" method="post">
+                                    {% csrf_token %}
+                                    <div class="login-account p-30 box-shadow">
+                                        <p>如果已经注册为会员,请登录</p>
+                                        <input type="text" placeholder="用户名" name="username" id="username">
+                                        <input type="password" placeholder="密码" name="password" id="password">
+                                        <button type="button" class="cart-button text-uppercase" id="login_button">登录</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="registered-customers new-customers">
+                                <div class="section-title text-uppercase mb-40">
+                                    <h4>新用户注册</h4>
+                                </div>
+                                <form action="register_fun" method="post">
+                                    {% csrf_token %}
+                                    <div class="login-account p-30 box-shadow">
+                                        <div class="row">
+                                            <div>
+                                                <input type="text" placeholder="用户名" id="re_username"
+                                                       name="re_username">
+                                            </div>
+                                            <div>
+                                                <input type="password" placeholder="密码" id="re_password"
+                                                       name="re_password">
+                                            </div>
+                                            <div>
+                                                <input type="password" placeholder="确认密码" name="re_confirm_password"
+                                                       id="re_confirm_password">
+                                            </div>
+                                            <div>
+                                                <select name="sex" id="sex_choose">
+                                                    <option value="woman">女</option>
+                                                    <option value="man">男</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="checkbox" style="text-align: center">
+                                            <label class="mr-10">
+                                                <small>
+                                                    <input type="checkbox" name="signup">注册成为我们的用户
+                                                </small>
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button value="register" type="button"
+                                                        class="cart-button text-uppercase mt-20" id="register_button">注册
+                                                </button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button id="register" type="reset" class="cart-button text-uppercase mt-20">清除
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+<script>
+    var registerbutton = document.getElementById("register_button");
+    registerbutton.onclick = function () {
+        var username = document.getElementById("re_username").value;
+        var password = document.getElementById("re_password").value;
+        var re_confirm_password = document.getElementById("re_confirm_password").value;
+        var sex_choose = document.getElementById("sex_choose").value;
+        $.ajax({
+            url: '/register_fun',
+            data: {"re_username": username,"re_password":password,"re_confirm_password":re_confirm_password,"sex":sex_choose},
+            dataType: 'text',
+            type: 'POST',
+            success: function (data) {
+                console.log(data);
+                if(data=="成功注册"){
+                    toastr.options.positionClass = 'toast-top-center';
+                    toastr.success(data);
+                    document.getElementById("username").value = username;
+                    document.getElementById("password").value = password;
+                    document.getElementById("login_button").click();
+                }else{
+                    toastr.options.positionClass = 'toast-top-center';
+                    toastr.error(data);
+                }
+            }
+        });
+    };
+    login_button.onclick = function () {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        $.ajax({
+            url: '/login_fun',
+            data: {"username": username, "password": password},
+            dataType: 'text',
+            type: 'POST',
+            success: function (data) {
+                if (data == '登录成功') {
+                    toastr.options.positionClass = 'toast-top-center';
+                    toastr.success(data);
+                    document.getElementById('mainpage').click();
+                } else {
+                    toastr.options.positionClass = 'toast-top-center';
+                    toastr.error(data);
+                }
+            }
+        })
+    }
+</script>
+{% endblock %}
+</body>
+
+</html>

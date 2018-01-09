@@ -1,0 +1,137 @@
+/* large desktop :1400px. */
+@media (min-width: 1400px) and (max-width: 2000px) {
+    .slider-content.slider-text-1 h2{font-size: 24px}
+    .slider-content.slider-text-2 h1{font-size: 70px}
+    .slider-content.slider-text-3 p {font-size: 16px;}
+    .slider-button {font-size: 16px; padding: 10px 25px}
+    .off-text h4{ font-size: 18px;}
+    .off-text h2 {font-size: 42px; line-height: 28px; margin-bottom: 3px;}
+    .section-tab-menu ul li a {font-size: 20px;}
+    
+}
+/* desktop 1200px to 1600px */
+@media (min-width: 1200px) and (max-width: 1600px) {
+}
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1199px) {
+.container {width:970px}
+    .as-mainwrapper.wrapper-boxed {width: 970px}
+    .as-mainwrapper.wrapper-boxed .stick {width: 970px}
+    .search-box form {width: 170px}
+    .single-slider-info h2 {font-size: 24px}
+    .news-right.text-center input {width: 482px}
+    .testimonial-info::after {right: 75px}
+    .testimonial-info a.section-button.mt-30{margin-top: 10px}
+    .tab-content #grid .col-xs-12.col-width {width: 25%}
+    .shop-area-start.leftsidebar .tab-content #grid .col-xs-12.col-width{width: 33.3333%}
+    .single-left-widget .section-title ul.color-widget li:nth-child(5), .single-left-widget .section-title ul.color-widget li:nth-child(10){margin-right: 30px}
+    ul.widget-tag li:nth-child(3), ul.widget-tag li:nth-child(6){margin-right: 10px}
+    .mainmenu-area {width: 93%}
+    .touch-right input[type="text"]:first-child {margin-right: 30px}
+    .wrapper-boxed .google-address {left: -60px; width: 350px}
+    .wrapper-boxed .single-slider-info h4 {font-size: 13px}
+    .wrapper-boxed .single-slider-info h2 {font-size: 20px}
+
+}
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+.container {width:750px}
+    .as-mainwrapper.wrapper-boxed, .as-mainwrapper.wrapper-boxed .portfolio_gallery_area, .as-mainwrapper.wrapper-boxed .stick {width:750px}
+    .as-mainwrapper.wrapper-boxed .main-header-area.stick{position:inherit}
+    .main-header-area.bg-white.sticker.stick {position: inherit}
+    .mobile-menu-area {display:block}
+    .mainmenu, .zoomContainer {display: none}
+    .slider-content.slider-text-2 h1 {font-size: 42px}
+    .off-text {top: 30%}
+    .offer-info h1 {font-size: 40px;line-height: 20px}
+    .offer-area .offer-info.mt-40, .shop-area-start.leftsidebar.mt-90 {margin-top: 0}
+    .timer {right: 0; top: 100%}
+    .newsletter-info .news-left{margin-bottom: 50px}
+    .newsletter-info .news-right{float: left}
+    .news-left::after {display: none}
+    .testimonial-info::after {right: 70px}
+    .testimonial-info a.section-button.mt-30{margin-top: 10px}
+    .product-thumb ul li {margin-bottom: 8px}
+    .touch-right{margin-top: 50px; margin-left: 0}
+    .google-address ul li {padding-right: 10px}
+    .google-address {padding: 60px 0 60px 30px; width: 280px}
+    .column-left, .tab-content #grid .col-xs-12.col-width .single-product-img img, .single-product-img img{width: 100%}
+    .col-left-top-left-text h3, .col-left-top-right-text h3, .col-left-bottom-left-text h3, .col-left-bottom-right-text h3, .col-right-text span {font-size: 22px}
+    .touch-right, .total-cart{margin-top: 50px; margin-left: 0}
+    .tab-content #grid .col-xs-12.col-width {width: 33.33333%}
+    .single-left-widget .section-title ul.color-widget li:nth-child(5), .single-left-widget .section-title ul.color-widget li:nth-child(10){margin-right: 30px}
+    ul.widget-tag li:nth-child(3), ul.widget-tag li:nth-child(6){margin-right: 10px}
+    #list .col-md-9, .shop-area-start.leftsidebar .col-md-9, .shop-area-start.leftsidebar.mt-90 .col-md-3{margin-top: 50px}
+    .wrapper-boxed .single-off-banner a.section-button{display: none;}
+    
+}
+/* small mobile :320px. */
+@media (max-width: 767px) {
+.container {width:300px}
+    .as-mainwrapper.wrapper-boxed {width:450px}
+    .main-header-area.bg-white.sticker.stick {position: inherit}
+    .as-mainwrapper.wrapper-boxed, .as-mainwrapper.wrapper-boxed .stick, .as-mainwrapper.wrapper-boxed .portfolio_gallery_area, .as-mainwrapper.wrapper-boxed .gallery, .as-mainwrapper.wrapper-boxed .gallery {width:300px}
+    .mobile-menu-area {display:block}
+    .mainmenu, .nivo-directionNav, .zoomContainer, .portfolio-detail-info, .news-left::after, .testimonial-left::after{display: none}
+    .logo-info-area{text-align: center}
+    .header-logo, .news-left, .single-blog{margin-bottom: 30px}
+    .single-slider-bottom, .section-tab-menu ul li, .featured-area.ptb-90 .col-md-5, .single-product-item, .single-off-banner, .single-service {margin-bottom: 15px}
+    .section-tab-menu ul li, .single-service, .touch-right input[type="text"]:first-child {margin-right: 0px}
+    .single-off-banner, .single-service, .touch-right input, .touch-right textarea, .col-left-top-left.pr-8.pull-left img, .column-left, .col-left-top-left.pr-8.pull-left, .col-left-bottom-right.pl-8.pull-right, .col-left-top-right.pl-8.pull-right, .col-left-bottom-left.pr-8.pull-left, .col-left-bottom-left.pr-8.pull-left img, .cart-tab-menu ul li, .cart-table table td.p-name, .description-tab-menu.section-tab-menu ul li, .tab-content #grid .col-xs-12.col-width .single-product-img img, .col-xs-12.col-width, #list .single-product img, .leftsidebar .col-xs-12.col-width, .section-tab-menu ul li {width: 100%}
+    .featured-left{padding-top: 0px}
+    .offer-info h1 {font-size: 30px; line-height: 15px}
+    .offer-info h3 {font-size: 20px}
+    .timer-grid > div { font-size: 10px; height: 50px; margin-right:15px; width: 50px}
+    .timer .timer-grid span {font-size: 15px; line-height: 15px}
+    .owl-theme .owl-controls .owl-nav div {left: 0}
+    .owl-theme .owl-controls .owl-nav div.owl-next {right: 0px}
+    .news-right.text-center {float: left; text-align: inherit}
+    .news-right.text-center input {width: 243px}
+    .news-right.text-center button {padding: 8.6px 12px}
+    .news-right.text-center input {padding: 10px}
+    #description > p, #specification > p, #review > p, .tab-caroursel-twenty .tab-content p, .tab-content ul li {font-size: 12px; margin-right: 10px}
+    .testimonial-info {padding-right: 0px; display: inline-block}
+    .testimonial-right {margin-left: 15px; margin-top: 15px}
+    .testimonial-img, .touch-right input[type="text"]:first-child, .footer-widget{margin-bottom: 20px}
+    .testimonial-info::after {right: 30px}
+    .testimonial-info a.section-button.mt-30 {margin-top: 10px}
+    .testimonial-area.pt-140{padding-top: 75px}
+    .touch-right, .total-cart{margin-top: 50px; margin-left: 0}
+    .col-md-2 .footer-widget {float: inherit}
+    .copyright p {font-size: 11px; padding: 0}
+    .pl-8{padding-left: 0; padding-bottom: 30px}
+    .pr-8{padding-right: 0; padding-bottom: 30px}
+    .google-address {left: 0px; padding: 60px 0 60px 30px; position: inherit; top: 50px; width: 100%}
+    .cart-table table th, .amount, .p-quantity > input{font-size: 11px}
+    .cart-table table td.p-name, .cart-table table th {padding-left: 10px}
+    .section-tab-menu.cart-tab-menu ul li a{font-size: 12px}
+    .p-total i {margin-left: 20px}
+    .cart-table .p-quantity input {width: 50px}
+    .p-total i {margin-left: 2px}
+    .single-left-widget .section-title ul.color-widget li:nth-child(5), .single-left-widget .section-title ul.color-widget li:nth-child(10){margin-right: 30px}
+    ul.widget-tag li:nth-child(3), ul.widget-tag li:nth-child(6){margin-right: 10px}
+    #list .col-md-9, .shop-area-start.leftsidebar .col-md-9, .shop-area-start.leftsidebar.mt-90 .col-md-3{margin-top: 50px}
+    .timer {padding-left: 0px}
+    
+}
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .container {width:450px}
+    .as-mainwrapper.wrapper-boxed {width:450px}
+    .mobile-menu-area {display:block}
+    .mainmenu, .news-left::after, .testimonial-left::after {display: none}
+    .single-member-img > img, .single-slider-bottom-img > img, .off-img img, .single-blog-img img,  .col-left-top-left.pr-8.pull-left img, .column-left, .col-left-top-left.pr-8.pull-left, .col-left-bottom-right.pl-8.pull-right, .col-left-top-right.pl-8.pull-right, .col-left-bottom-left.pr-8.pull-left, .col-left-top-right.pl-8.pull-right img, .col-left-bottom-left.pr-8.pull-left img, .single-slider-bottom-img img {width: 100%;}
+    .pl-8{padding-left: 0}
+    .pr-8{padding-right: 0}
+    .search-box {float: none}
+    .header-logo{margin-bottom: 15px}
+    .timer {right: 19%}
+    .footer-menu{float:left}
+    .footer-menu ul li:first-child a {padding-left: 0px}
+    .section-tab-menu ul li, .touch-right input[type="text"]:first-child {margin-right: 10px}
+    .cart-tab-menu ul li, .cart-table table td.p-name {width: 132px}
+    .cart-table table td.p-name, .cart-table table th {padding-left: 10px}
+    .section-tab-menu.cart-tab-menu ul li a{font-size: 12px}
+    .p-total i {margin-left: 20px}
+    .two .footer-menu.text-right, .footer-menu.text-right, .payment.text-right {float: left}
+}

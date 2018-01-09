@@ -1,0 +1,193 @@
+{#{% include "header.html" %}#}
+{% extends "base.html" %}
+{% load staticfiles %}
+<html class="no-js" lang="zh">
+
+<head>
+    {% block js %}
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Product</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/core.css'%}">
+    <link rel="stylesheet" href="{% static 'css/shortcode/shortcodes.css'%}">
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}">
+    <link rel="stylesheet" href="{% static 'css/move/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/move/main.css'%}" id="color-switcher-link">
+    <link rel="stylesheet" href="{% static 'css/move/animations.css'%}">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css2/toastr.js.map' %}">
+    <link rel="stylesheet" href="{% static 'css/toastr.css' %}">
+    <script src="{% static 'js/toastr.min.js' %}"></script>
+    {% endblock %}
+</head>
+
+<body>
+{% block content%}
+<!-- Body main wrapper start -->
+<div class="wrapper">
+    <!-- Start of header area -->
+    <!-- End of header area -->
+    <!-- Start Breadcrumbs Area -->
+    <div class="breadcrumbs-area breadcrumbs-bg ptb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumbs-inner">
+                        <h5 class="breadcrumbs-disc m-0">带给你最好的购物体验</h5>
+                        <h2 class="breadcrumbs-title text-black m-0">专项商品</h2>
+                        <ul class="top-page">
+                            <li><a href="/">主页</a></li>
+                            <li>></li>
+                            <li>商品名: {{product.name}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs Area -->
+
+    <div class="ls ls section_padding_top_100 section_padding_bottom_75 columns_padding_25">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <div class="row single-shop-item">
+                        <div class="col-lg-7 single-shop-item__img">
+                            <div id="slider" class="flexslider">
+                                <img src="/media/{{product.src}}"alt="图片显示错误" />
+                            </div>
+                        </div>
+                        <div class="col-lg-5 single-shop-item__content">
+                            <div class="single-shop-item__content-wrapper">
+                                {{product.name}}
+                                <div class="single-shop-item__text">
+                                    <p>{{product.description}}</p>
+                                </div>
+                                <div class="single-shop-item__custom-item">
+                                    <p class="single-shop-item__custom-text" ><span>请选择规格:<p id="type" value="nothing" class="single-shop-item__custom-text"></p></span></p>
+                                    <p id="color" value="nothing"></p>
+                                    <p id="amount_index" value=""></p>
+                                    <script type="text/javascript">
+                                       document.getElementById("type").value="nothing";
+                                     </script>
+                                      <div class="single-shop-item__text">
+                                          {% for size in product.size %}
+                                          {% for color in product.color %}
+                                          {% ifequal forloop.parentloop.counter forloop.counter %}
+                                           <button class="btn" id="{{size}}{{color}}" value="{{size}}"style="background-color: #f9f9f9;width: 100px;height: 40px; text-align: center;vertical-align: middle;">
+                                           {{size}}+{{color}}
+                                           </button>
+                                           <script type="text/javascript">
+                                              {{size}}{{ color }}.onclick=function(){
+                                               document.getElementById("type").innerHTML="服装尺码:{{size}}   服装颜色:{{color}}";
+                                               document.getElementById("amount_index").value="{{forloop.parentloop.counter}}";
+                                               document.getElementById("type").value="{{size}}";
+                                               document.getElementById("color").value="{{color}}";
+                                               }
+                                           </script>
+
+                                          {% endifequal %}
+                                          {% endfor %}
+                                          {% endfor %}
+                                   <p class="single-shop-item__custom-text"><span></span> </p>
+                                   <p class="single-shop-item__custom-text"><span></span> </p>
+                                    <p class="single-shop-item__custom-text" ><span>购买数量:<p id="count" value="nothing" class="single-shop-item__custom-text"></p></span></p>
+                                          <input type="text" id="re_username"  oninput="fresh()" value="1" onkeyup="this.value=this.value.replace(/[^0-9]+/,'');">
+                                          <script type="text/javascript">
+                                          function fresh()
+                                          {
+                                          if(document.getElementById("re_username").value=="0")
+                                          {
+                                          document.getElementById("re_username").value=""
+                                          }
+
+                                          if(document.getElementById("re_username").value)
+                                           {
+                                           var count =parseInt(document.getElementById("re_username").value);
+                                           if(count >99)
+                                            {
+                                              alert("最多一次购买99件");
+                                              document.getElementById("price").innerHTML="价格：{{product.sale_price|floatformat:0}}元";
+                                              document.getElementById("re_username").value = 1;
+                                             }
+                                           else
+                                           {
+                                           var price = parseInt({{product.sale_price}});
+                                           var freshprice = count*price;
+                                           document.getElementById("price").innerHTML="价格："+freshprice+"元"
+                                           }
+                                           }
+
+                                          }
+                                          </script>
+                                </div>
+                                <!--<form action="add_cart" method="post" >-->
+
+                                    <span class="price">
+                                        <span>
+                                          <span id ="price" class="amount">价格：{{product.sale_price|floatformat:0}}元</span>
+                                         </span>
+                                     </span>
+                                <input  onclick="myAlert()"  style="background-color: #20B2AA;color: black; font-weight: bolder" type="button"   value="加入购物车" />
+                              <script type="text/javascript">
+                                   function myAlert(){
+                                   if(!document.getElementById("re_username").value)
+                                          {
+                                           alert("请输入正确的购买数量");
+                                           document.getElementById("re_username").value=1;
+                                           }
+                                           else{
+                                if(document.getElementById("type").value=="nothing"){
+                                       toastr.options.positionClass = 'toast-top-center';
+                                       toastr.error("请选择一个购买的规格吧亲");
+                                   }
+                                   else {
+                                        var amount_index = document.getElementById("amount_index").value;
+                                        var value = document.getElementById("type").value;
+                                        var color = document.getElementById("color").value;
+                                        var amount_str = document.getElementById("re_username").value;
+                                        var amount = parseInt(amount_str);
+                                        var id = "{{product.id}}";
+                                        $.ajax({
+                                            url: "/ajax_add_cars",
+                                            data: {"id": id, "amount": amount,"color":color,"value":value,"amount_index":amount_index},
+                                            dataType: 'text',
+                                            type: 'POST',
+                                            success: function (data) {
+                                                if (data == "添加购物车成功") {
+                                                    toastr.options.positionClass = 'toast-top-center';
+                                                    toastr.success(data);
+                                                } else {
+                                                    toastr.options.positionClass = 'toast-top-center';
+                                                    toastr.error(data);
+                                                }
+                                            }
+                                        });
+                                }
+                                }
+                                  }
+                                </script>
+                                    <input type="text" style="display: none" name="pro_id" value={{product.id}}>
+                                    <!--<button class="single-shop-item__button">生成订单</button>-->
+                                    <!--#使用js的onclick实现加入购物车，给button加一个onclick-->
+                                <!--</form>-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+
+
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    {% block js %}
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Cart</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- favicon
+        ============================================ -->
+        <!-- Bootstrap CSS
+        ============================================ -->
+{#       <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/custom-slider/css/nivo-slider.css' %}"
+              media="screen"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/custom-slider/css/preview.css' %}" media="screen"/>
+
+        <!-- Fontawsome CSS
+        ============================================ -->
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css ' %}">
+
+        <!-- material iconic CSS
+        ============================================ -->
+        <link rel="stylesheet" href="{% static 'css2/material-design-iconic-font.css ' %}">
+        <link rel="stylesheet" href="{% static 'css2/material-design-iconic-font.min.css' %}">
+
+        <!-- owl.carousel CSS
+        ============================================ -->
+        <link rel="stylesheet" href="{% static 'css2/owl.carousel.css' %}">
+
+        <!-- jquery-ui CSS
+        ============================================ -->
+        <link rel="stylesheet" href="{% static 'css2/jquery-ui.css' %}">
+
+        <!-- meanmenu CSS
+        ============================================ -->
+        <link rel="stylesheet" href="{% static 'css2/meanmenu.min.css' %}">
+
+        <!-- animate CSS
+        ============================================ -->
+        <link rel="stylesheet" href="{% static 'css2/animate.css' %}">
+        <!-- Color Switcher CSS
+        ============================================ -->
+        <link rel="stylesheet" href="{% static 'css2/color.css' %}">
+        <link rel="stylesheet" href="{% static "css2/color-switcher.css" %}">
+
+        <!-- Animate headline CSS
+        ============================================ -->
+        <link rel="stylesheet" href="{% static 'css2/animate-heading.css' %}">
+        <link rel="stylesheet" href="{% static 'css2/reset.css' %}">
+
+        <!-- Video CSS
+        ============================================ -->
+        <link rel="stylesheet" href="{% static 'css2/jquery.mb.YTPlayer.css' %}">
+
+        <!-- style CSS
+        ============================================ -->
+        <link rel="stylesheet" href="{% static 'css2/style.css' %}">
+
+        <!-- responsive CSS
+        ============================================ -->
+        <link rel="stylesheet" href="{% static 'css2/responsive.css' %}">
+         <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css2/toastr.js.map' %}">
+        <link rel="stylesheet" href="{% static 'css/toastr.css' %}">
+        <script src="{% static 'js/toastr.min.js' %}"></script>
+
+        <!-- modernizr JS
+        ============================================ -->
+{#        <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>#}
+    {% endblock %}
+    <!-- Color Css Files Start -->
+
+    <!-- Color Css Files End -->
+</head>
+ <style>
+        #cover{
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0,0.3);
+            display:none;
+            z-index:1000;
+        }
+    </style>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+{% block content %}
+    <div class="as-mainwrapper">
+        <div class="breadcrumbs-area breadcrumbs-bg ptb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumbs-inner">
+                            <h5 class="breadcrumbs-disc m-0">带给你最好的的购物体验</h5>
+                            <h2 class="breadcrumbs-title text-black m-0">购物车</h2>
+                            <ul class="top-page">
+                                <li><a href="/">主页</a></li>
+                                <li>></li>
+                                <li>购物车</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white">
+            <!-- header start -->
+            <!-- header end -->
+            <!-- banner start -->
+            <!-- banner end -->
+            <!-- cart start -->
+            <div class="cart-area-start mt-90">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                                <div class="cart-table ">
+                                    <table class="table-condensed table-bordered" >
+                                        <thead>
+                                        <tr>
+                                            <th>名称</th>
+                                            <th>单价</th>
+                                            <th>数量</th>
+                                            <th>总价</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="cart_tbody" class="pt-30">
+                                        {% for each in carts %}
+                                            <tr id="{{ each.single }}">
+                                                <td class="p-name ">
+                                                    <a href="product_ref/{{each.product_name}}"><img src="/media/{{ each.src }}" alt="#"></a>
+                                                    <p><a href="product_ref/{{each.product_name}}"><strong style="font-size: 18px">{{ each.product_name }}</strong></a></p>
+                                                    <p class="c-p-size"><span>大小: </span> {{ each.size }}</p>
+                                                    <p class="c-p-size"><span>颜色:</span>{{ each.color }}</p>
+                                                </td>
+                                                <td class="p-amount">
+{#                                                    <a href="#" style="visibility: hidden" ><img src="/media/{{ each.src }}" style="height:70% ;width: 70%" alt="#" ></a>#}
+                                                    <span class="amount" style="vertical-align: center;font-size: 16px">{{ each.price }}￥&nbsp;</span>
+                                                </td>
+                                                <td class="p-quantity">
+{#                                                    <input type="text" value="{{ each.amount }}">#}
+{#                                                    <a href="#"  ><img src="/media/{{ each.src }}" style="height:30%" alt="#" ></a>#}
+                                                    <span style="font-size: 18px">{{ each.amount }}</span> <span style="font-size: 18px">件</span>
+                                                </td>
+                                                <td class="p-total">
+{#                                                    <a href="#" style="visibility: hidden" ><img src="/media/{{ each.src }}" style="height:70%" alt="#" ></a>#}
+                                                    <span style="vertical-align: center;font-size: 16px"> &nbsp;{{ each.total_money }}￥</span>
+                                                   <li><img src="{% static 'fonts/trash.svg' %}" alt="#" onclick="MyAlert(this)"style="width: 20px;height: 20px"> </li>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                    <script type="text/javascript">
+                                        function MyAlert(obj) {
+                                            var id = obj.parentNode.parentNode.parentNode.id;
+                                            $.ajax({
+                                                url: '/delete_product_cart',
+                                                data: {"id": id},
+                                                dataType: 'text',
+                                                type: 'GET',
+                                                success: function (data) {
+                                                    id = JSON.parse(data)["id"];
+                                                    price = JSON.parse(data)["price"];
+                                                    var parent = document.getElementById("cart_tbody");
+                                                    var childs = parent.getElementsByTagName("tr");
+                                                    var pricenode1 = document.getElementById("price1");
+                                                    var pricenode2 = document.getElementById("price2");
+                                                    pricenode1.innerHTML = "￥"+price;
+                                                    pricenode2.innerHTML = "￥"+price;
+                                                    var result = document.getElementById(id);
+                                                    parent.removeChild(result);
+                                                    toastr.options.positionClass = 'toast-top-center';
+                                                    toastr.success("删除购物车成功");
+
+                                                }
+                                            });
+                                        }
+                                    </script>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6" style="float: right">
+                            <div class="cart-coupon-rightside pt-50">
+                                <div class="section-title">
+                                    <h4 class="text-uppercase pb-15">购物车总价</h4>
+                                </div>
+                                <div class="amount-table table-responsive">
+                                    <table>
+                                        <tbody>
+                                        <tr class="s-total">
+                                            <td>商品总额: <span id="price1">￥{{ pay_total }}</span></td>
+                                        </tr>
+                                        {#                                    <tr class="s-total">#}
+                                        {#                                        <td>邮费<span>￥0.00</span></td>#}
+                                        {#                                    </tr>#}
+                                        <tr class="g-total">
+                                            <td>总金额<span class="grand" id="price2">￥{{ pay_total }}</span></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="check-update pull-right">
+                                    <a href="/cart.html" id="fresh"class="mt-25 mr-25 section-button">刷新</a>
+                                    <!--href="checkout.html"-->
+                                    <a onclick="open_window()" id="set_order"class="checkout mt-25 section-button">生成订单</a>
+                                        <script type="text/javascript">
+                                           function del2()
+                                           {
+                                           var msg = "选择的收获地址为{{exinfo.address}}\n联系人{{exinfo.name}}\n联系方式:手机号{{exinfo.phone}}\n共有{{all_amount}}件商品\n总价{{pay_total}}元\n请确认后生成订单";
+                                           if (confirm(msg)==true){
+                                           return true;
+                                           }else{
+                                           return false;}
+                                           }
+                                        function open_window() {
+                                        if({{order_allow}}==0)
+                                           {
+                                           alert("抱歉，商品库存不足，无法生成订单，如有需要请与卖家联系");
+                                           }
+                                           else
+                                           {
+                                        if({{pay_total}}=="0")
+                                          {toastr.options.positionClass = 'toast-top-center';
+                                          toastr.error("购物车内没商品");}
+                                          else
+                                          {
+                                           if(del2() == true)
+                                           window.location.href="checkout.html";
+                                           }
+                                           }
+
+                                        }
+                                        </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单处理记录</title>
+    <table  border="1" cellspacing="0" style="width:75%;background-color:#FFFFFF;border:1px ">
+   <thead>
+      <tr>
+         <th>订单号</th>
+         <th>订单生成时间</th>
+         <th>金额</th>
+		<th>收获地址</th>
+		<th>是否完成付款</th>
+
+      </tr>
+   </thead>
+   <tbody id="tbMain"></tbody>
+</table>
+<script type="text/javascript">
+
+  var per = [
+		{order_id:"5a3d2c6b0715511ab4c6f2c4",deal_time:'2017-12-23 08:01:47.477',total_money:'100',address:"后马路",status:"未付款"},
+            	{order_id:"5a3d2c6b0715511ab4c6f2c4",deal_time:'2017-12-23 08:01:47.477',total_money:'100',address:"后马路",status:"未付款"},
+            ];
+  window.onload = function(){
+      var tbody = document.getElementById('tbMain');
+
+      for(var i = 0;i < per.length; i++){
+          var trow = getDataRow(per[i]);
+          tbody.appendChild(trow);
+        }
+
+      }
+
+  function getDataRow(h){
+     var row = document.createElement('tr');
+
+     var idCell = document.createElement('td');
+     idCell.innerHTML = h.order_id;
+     row.appendChild(idCell);
+
+     var timeCell = document.createElement('td');
+     timeCell.innerHTML =h.deal_time;
+     row.appendChild(timeCell);
+
+     var moneyCell = document.createElement('td');
+     moneyCell.innerHTML = h.total_money;
+     row.appendChild(moneyCell);
+
+		 var addressCell = document.createElement('td');
+     addressCell.innerHTML = h.address;
+     row.appendChild(addressCell);
+
+     var status = document.createElement('td');
+     status.innerHTML = h.status;
+     row.appendChild(status);
+     return row;
+     }
+</script>
+</head>
+<body>
+
+</body>
+</html>

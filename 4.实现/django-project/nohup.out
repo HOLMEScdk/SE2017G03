@@ -1,0 +1,54 @@
+[2017-12-23 16:45:03 +0800] [15392] [INFO] Starting gunicorn 19.7.1
+[2017-12-23 16:45:03 +0800] [15392] [INFO] Listening at: http://127.0.0.1:8000 (15392)
+[2017-12-23 16:45:03 +0800] [15392] [INFO] Using worker: gevent
+[2017-12-23 16:45:03 +0800] [15395] [INFO] Booting worker with pid: 15395
+[2017-12-23 16:45:04 +0800] [15396] [INFO] Booting worker with pid: 15396
+[2017-12-23 11:32:17 +0000] [15395] [INFO] Parent changed, shutting down: <Worker 15395>
+[2017-12-23 11:32:17 +0000] [15395] [INFO] Worker exiting (pid: 15395)
+[2017-12-23 11:32:17 +0000] [15396] [INFO] Parent changed, shutting down: <Worker 15396>
+[2017-12-23 11:32:17 +0000] [15396] [INFO] Worker exiting (pid: 15396)
+usage: gunicorn [OPTIONS] [APP_MODULE]
+gunicorn: error: unrecognized arguments: se2017_django.wsgi:application
+usage: gunicorn [OPTIONS] [APP_MODULE]
+gunicorn: error: unrecognized arguments: se2017_django.wsgi:application
+usage: gunicorn [OPTIONS] [APP_MODULE]
+gunicorn: error: unrecognized arguments: se2017_django.wsgi:application
+[2017-12-23 19:35:01 +0800] [22431] [INFO] Starting gunicorn 19.7.1
+[2017-12-23 19:35:01 +0800] [22431] [INFO] Listening at: http://127.0.0.1:8000 (22431)
+[2017-12-23 19:35:01 +0800] [22431] [INFO] Using worker: sync
+[2017-12-23 19:35:01 +0800] [22435] [INFO] Booting worker with pid: 22435
+[2017-12-23 19:36:11 +0800] [22486] [INFO] Booting worker with pid: 22486
+[2017-12-23 19:36:11 +0800] [22431] [INFO] Handling signal: hup
+[2017-12-23 19:36:11 +0800] [22431] [INFO] Hang up: Master
+[2017-12-23 19:36:11 +0800] [22487] [INFO] Booting worker with pid: 22487
+[2017-12-23 11:36:12 +0000] [22486] [INFO] Worker exiting (pid: 22486)
+[2017-12-23 23:52:25 +0800] [22431] [CRITICAL] WORKER TIMEOUT (pid:22487)
+[2017-12-23 15:52:25 +0000] [22487] [INFO] Worker exiting (pid: 22487)
+[2017-12-23 23:52:26 +0800] [1317] [INFO] Booting worker with pid: 1317
+[2017-12-23 23:52:57 +0800] [22431] [CRITICAL] WORKER TIMEOUT (pid:1317)
+[2017-12-23 15:52:57 +0000] [1317] [INFO] Worker exiting (pid: 1317)
+[2017-12-23 23:52:57 +0800] [1348] [INFO] Booting worker with pid: 1348
+[2017-12-23 23:53:28 +0800] [22431] [CRITICAL] WORKER TIMEOUT (pid:1348)
+[2017-12-23 15:53:28 +0000] [1348] [INFO] Worker exiting (pid: 1348)
+[2017-12-23 23:53:29 +0800] [1360] [INFO] Booting worker with pid: 1360
+[2017-12-23 23:54:58 +0800] [22431] [CRITICAL] WORKER TIMEOUT (pid:1360)
+[2017-12-23 15:54:58 +0000] [1360] [INFO] Worker exiting (pid: 1360)
+[2017-12-23 23:54:59 +0800] [1444] [INFO] Booting worker with pid: 1444
+[2017-12-23 23:55:30 +0800] [22431] [CRITICAL] WORKER TIMEOUT (pid:1444)
+[2017-12-23 15:55:30 +0000] [1444] [INFO] Worker exiting (pid: 1444)
+[2017-12-23 23:55:30 +0800] [1450] [INFO] Booting worker with pid: 1450
+[2017-12-23 23:56:17 +0800] [22431] [CRITICAL] WORKER TIMEOUT (pid:1450)
+[2017-12-23 15:56:17 +0000] [1450] [INFO] Worker exiting (pid: 1450)
+[2017-12-23 23:56:18 +0800] [1501] [INFO] Booting worker with pid: 1501
+[2017-12-23 23:57:22 +0800] [22431] [CRITICAL] WORKER TIMEOUT (pid:1501)
+[2017-12-23 15:57:22 +0000] [1501] [INFO] Worker exiting (pid: 1501)
+[2017-12-23 23:57:22 +0800] [1540] [INFO] Booting worker with pid: 1540
+[2017-12-23 23:57:54 +0800] [22431] [CRITICAL] WORKER TIMEOUT (pid:1540)
+[2017-12-23 15:57:54 +0000] [1540] [INFO] Worker exiting (pid: 1540)
+[2017-12-23 23:57:54 +0800] [1586] [INFO] Booting worker with pid: 1586
+[2017-12-24 00:44:32 +0800] [22431] [CRITICAL] WORKER TIMEOUT (pid:1586)
+[2017-12-23 16:44:32 +0000] [1586] [INFO] Worker exiting (pid: 1586)
+[2017-12-24 00:44:32 +0800] [3589] [INFO] Booting worker with pid: 3589
+[2017-12-24 13:05:27 +0800] [22431] [CRITICAL] WORKER TIMEOUT (pid:3589)
+[2017-12-24 05:05:27 +0000] [3589] [INFO] Worker exiting (pid: 3589)
+[2017-12-24 13:05:28 +0800] [3764] [INFO] Booting worker with pid: 3764
