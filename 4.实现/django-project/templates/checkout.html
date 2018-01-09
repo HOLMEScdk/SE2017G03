@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body >
+ <title>订单号</title>
+ <div id="content">
+    	<div id="box">
+        	<div class="boxTop"></div>
+            <div class="boxMid">
+                <div class="clear"></div>
+                	<div style="margin: 0 auto; height:512px width: 512px; text-align: center;width:75%;"><img src="http://300hero.download.jumpwgame.com/passport/images/scc.png" ></div>
+                    <div style="margin: 0 auto; text-align: center;" class="text">订单生成成功<br />
+                    	<a href="/shop.html" class="btn3">继续逛一逛</a> <a href="/index.html" class="btn3">返回首页</a></div>
+
+                    </div>
+            </div>
+            <div class="boxBottom"></div>
+        </div>
+    </div>
+    <div class="text"style="margin: 0 auto; height:256px width: 256px; text-align: center;"><li>您的订单号是:<input id = "order_id" value = "{{orderid}}" ><button onclick="copy()">复制</button></li>
+    需要转账{{summ}}元;请保存好与店家完成付款;
+      </div>
+     <div class="text"style="margin: 0 auto; height:256px width: 256px; text-align: center;">扫一扫二维码现在付款↓</div>
+     <div style="margin: 0 auto; height:256px width: 256px; text-align: center;"><img src="https://img.alicdn.com/tfscom/TB1G03plvDH8KJjy1Xcwu3pdXXa.png"><div>
+         订单生成时间{{ordertime}};
+
+</body>
+<script>
+    function copy(){
+    copyToClipboard(document.getElementById("order_id"));
+    alert("已经复制到粘贴板");
+    }
+    function copyToClipboard(elem) {
+    // create hidden text element, if it doesn't already exist
+    var targetId = "_hiddenCopyText_";
+    var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+    var origSelectionStart, origSelectionEnd;
+    if (isInput) {
+        // can just use the original source element for the selection and copy
+        target = elem;
+        origSelectionStart = elem.selectionStart;
+        origSelectionEnd = elem.selectionEnd;
+    } else {
+        // must use a temporary form element for the selection and copy
+        target = document.getElementById(targetId);
+        if (!target) {
+            var target = document.createElement("textarea");
+            target.style.position = "absolute";
+            target.style.left = "-9999px";
+            target.style.top = "0";
+            target.id = targetId;
+            document.body.appendChild(target);
+        }
+        target.textContent = elem.textContent;
+    }
+    // select the content
+    var currentFocus = document.activeElement;
+    target.focus();
+    target.setSelectionRange(0, target.value.length);
+
+    // copy the selection
+    var succeed;
+    try {
+        succeed = document.execCommand("copy");
+    } catch(e) {
+        succeed = false;
+    }
+    // restore original focus
+    if (currentFocus && typeof currentFocus.focus === "function") {
+        currentFocus.focus();
+    }
+
+    if (isInput) {
+        // restore prior selection
+        elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+    } else {
+        // clear temporary content
+        target.textContent = "";
+    }
+    return succeed;
+}
+</script>
+</html>
